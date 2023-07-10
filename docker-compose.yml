@@ -1,0 +1,41 @@
+# dokcer-compose patch si besoin
+version: "3.7"
+services:
+
+    # Wordpress service
+    wordpress:
+        image: wordpress:php8.0-fpm
+        container_name: wordpress
+        restart: always
+        ports:
+            - "8080:8080"
+        volumes:
+            - ./wordpress/html:/var/www/html
+        environment:
+            WORDPRESS_DB_HOST: db
+            WORDPRESS_DB_USER: ${DB_USERNAME}
+            WORDPRESS_DB_PASSWORD: ${DB_PASSWORD}
+            WORDPRESS_DB_NAME: ${DB_DATABASE}
+        networks:
+            - app-network
+        command: php -S 0.0.0.0:8080 -t /var/www/html
+
+    # MySQL database service
+    db:
+        image: mariadb:10.5.8
+        container_name: mariadb-wordpress
+        ports:
+            - "3306:3306"
+        environment:
+            MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+            MYSQL_DATABASE: ${DB_DATABASE}
+            MYSQL_USER: ${DB_USERNAME}
+            MYSQL_PASSWORD: ${DB_PASSWORD}
+        env_file:
+            - ./.env
+        networks:
+            - app-network
+
+networks:
+    app-network:
+        driver: bridge
