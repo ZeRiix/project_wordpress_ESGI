@@ -1,0 +1,14 @@
+/*
+Theme Name: Exam ESGI
+Author: ZeRiix
+Author URI: http://zeriix.fr/
+Description: thème pour l'examen de wordpress
+Version: 1.0
+*/
+
+body {
+    background: #FFFFFF;
+    font-family: "Montserrat", "Helvetica Neue",;
+    color: #000000;
+    margin: 0 auto;
+}
