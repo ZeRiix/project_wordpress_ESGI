@@ -21,5 +21,8 @@
     <div class="w-[233.33px] h-[70px] left-[154px] top-[75px] absolute">
         <div class="w-[233.33px] h-[70px] left-0 top-0 absolute"></div>
     </div>
-    <?php wp_footer(); ?>
 </div>
+<?php wp_footer(); ?>
+</body>
+
+</html>
