@@ -1,4 +1,4 @@
-<div class="w-[1920px] h-[397px] relative">
+<div class="w-[100%] h-[397px] relative">
     <div class="w-[1920px] h-[397px] left-0 top-0 absolute bg-slate-900"></div>
     <div class="pr-[303px] left-[159px] top-[296px] absolute justify-start items-center inline-flex">
         <div class="text-white text-[15px] font-normal">2022 Figma Template by ESGI</div>
