@@ -1,4 +1,5 @@
-<div class="w-[1604px] h-[870px] relative">
+<?php get_header(); ?>
+<div class="w-[100%] h-[870px] relative">
     <div class="w-[502px] h-[284px] left-[1102px] top-[586px] absolute">
         <div
             class="w-[500px] h-[114px] left-[2px] top-[170px] absolute text-zinc-500 text-xl font-normal leading-[38px]">
@@ -90,3 +91,4 @@
         </div>
     </div>
 </div>
+<?php get_footer(); ?>
