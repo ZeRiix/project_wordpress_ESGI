@@ -44,6 +44,11 @@ docker-compose up -d
 ./.env
 ```
 
+## Warning
+
+installer le project docker-clean version wordpress et cloner le repo dans le dossier theme
+remplacer le docker-compose de docker-clean par celui du theme en cas de problème
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
