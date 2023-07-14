@@ -135,3 +135,24 @@ function esgi_display_posts()
 
     wp_reset_postdata();
 }
+
+function get_all_pages()
+{
+    $pages = get_pages();
+    $page_list = array();
+
+    foreach ($pages as $page) {
+        $page_list[] = array(
+            'id'    => $page->ID,
+            'title' => $page->post_title,
+            'link'  => get_permalink($page->ID),
+        );
+    }
+    return $page_list;
+}
+
+function page_uri(string $page)
+{
+    $pages = get_all_pages();
+    echo $pages[0]['link'] . '&action=' . $page;
+}
