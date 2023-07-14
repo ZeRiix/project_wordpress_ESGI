@@ -33,8 +33,7 @@
     </div>
     <div class="w-[1487px] h-[905px] left-[277px] top-[323px] absolute">
         <div class="w-[1487px] h-[631px] left-0 top-[274px] absolute">
-            <img class="w-[1487px] h-[631px] left-0 top-0 absolute" src="https://via.placeholder.com/1487x631" />
-            <img class="w-[1487px] h-[631px] left-0 top-0 absolute" src="https://via.placeholder.com/1487x631" />
+            <img class="w-[1487px] h-[631px] left-0 top-0 absolute" src="<?php echo img_uri(); ?>png/10.png" />
         </div>
         <div class="w-[183px] h-[130px] left-[1146px] top-0 absolute">
             <div class="left-[127px] top-0 absolute text-slate-900 text-[27px] font-bold">CEO</div>

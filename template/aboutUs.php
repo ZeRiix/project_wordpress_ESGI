@@ -8,10 +8,7 @@
             <div class="w-52 h-[77px] left-0 top-[633px] absolute text-zinc-500 text-xl font-normal leading-[38px]">
                 +33 1 53 31 25 25<br />ceo@company.com</div>
             <div class="w-[364px] h-[531px] left-0 top-0 absolute">
-                <img class="w-[363px] h-[531px] left-[0.50px] top-0 absolute"
-                    src="https://via.placeholder.com/363x531" />
-                <img class="w-[363px] h-[531px] left-[0.50px] top-0 absolute"
-                    src="https://via.placeholder.com/363x531" />
+                <img class="w-[363px] h-[531px] left-[0.50px] top-0 absolute" src="<?php img_uri(); ?>png/8.png" />
             </div>
         </div>
         <div class="w-[366px] h-[710px] left-[825px] top-[142px] absolute">
@@ -21,8 +18,7 @@
             <div class="w-52 h-[77px] left-[2px] top-[633px] absolute text-zinc-500 text-xl font-normal leading-[38px]">
                 +33 1 53 31 25 20<br />design@company.com</div>
             <div class="w-[363px] h-[531px] left-[3px] top-0 absolute">
-                <img class="w-[363px] h-[531px] left-0 top-0 absolute" src="https://via.placeholder.com/363x531" />
-                <img class="w-[363px] h-[531px] left-0 top-0 absolute" src="https://via.placeholder.com/363x531" />
+                <img class="w-[363px] h-[531px] left-0 top-0 absolute" src="<?php img_uri(); ?>png/7.png" />
             </div>
         </div>
         <div class="w-[365px] h-[710px] left-[414px] top-[142px] absolute">
@@ -33,8 +29,7 @@
                 <div class="text-slate-900 text-[35px] font-semibold">Event planner</div>
             </div>
             <div class="w-[363px] h-[531px] left-[2px] top-0 absolute">
-                <img class="w-[363px] h-[531px] left-0 top-0 absolute" src="https://via.placeholder.com/363x531" />
-                <img class="w-[363px] h-[531px] left-0 top-0 absolute" src="https://via.placeholder.com/363x531" />
+                <img class="w-[363px] h-[531px] left-0 top-0 absolute" src="<?php img_uri(); ?>png/6.png" />
             </div>
         </div>
         <div class="w-[365px] h-[710px] left-[2px] top-[142px] absolute">
@@ -44,8 +39,7 @@
                 <div class="text-slate-900 text-[35px] font-semibold">Sales Manager</div>
             </div>
             <div class="w-[363px] h-[531px] left-[2px] top-0 absolute">
-                <img class="w-[363px] h-[531px] left-0 top-0 absolute" src="https://via.placeholder.com/363x531" />
-                <img class="w-[363px] h-[531px] left-0 top-0 absolute" src="https://via.placeholder.com/363x531" />
+                <img class="w-[363px] h-[531px] left-0 top-0 absolute" src="<?php img_uri(); ?>png/5.png" />
             </div>
         </div>
         <div class="w-[490px] h-[79px] pr-[181px] left-0 top-0 absolute justify-start items-center inline-flex">
@@ -85,8 +79,7 @@
             </div>
         </div>
         <div class="w-[660px] h-[990px] left-0 top-[360px] absolute">
-            <img class="w-[660px] h-[990px] left-0 top-0 absolute" src="https://via.placeholder.com/660x990" />
-            <img class="w-[660px] h-[990px] left-0 top-0 absolute" src="https://via.placeholder.com/660x990" />
+            <img class="w-[660px] h-[990px] left-0 top-0 absolute" src="<?php img_uri(); ?>png/2.png" />
         </div>
         <div class="w-[917px] h-[235px] left-[430px] top-0 absolute">
             <div
@@ -104,8 +97,7 @@
         </div>
         <div class="w-[376px] h-[105px] left-[554px] top-[53px] absolute"></div>
         <div class="w-[1487px] h-[631px] left-[273px] top-[233px] absolute">
-            <img class="w-[1487px] h-[631px] left-0 top-0 absolute" src="https://via.placeholder.com/1487x631" />
-            <img class="w-[1487px] h-[631px] left-0 top-0 absolute" src="https://via.placeholder.com/1487x631" />
+            <img class="w-[1487px] h-[631px] left-0 top-0 absolute" src="<?php img_uri(); ?>png/4.png" />
         </div>
     </div>
 </div>
