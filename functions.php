@@ -12,6 +12,7 @@ add_action('after_setup_theme', function () {
         'default-color' => '000000',
     );
 
+    add_theme_support('contact-form-7');
     add_theme_support('custom-background', $args);
     register_nav_menu('header', 'En tête du menu');
     register_nav_menu('footer', 'Pied de page');
@@ -155,4 +156,49 @@ function page_uri(string $page)
 {
     $pages = get_all_pages();
     echo $pages[0]['link'] . '&action=' . $page;
+}
+
+add_action('customize_register', 'esgi_contact_customize_register');
+function esgi_contact_customize_register($wp_customize)
+{
+    $wp_customize->add_section('esgi_contact_contact_form', array(
+        'title'    => __('Formulaire de contact', 'esgi'),
+        'priority' => 100,
+    ));
+
+    $wp_customize->add_setting('esgi_contact_selected_contact_form', array(
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('esgi_contact_selected_contact_form', array(
+        'type'        => 'select',
+        'label'       => __('Sélectionner un formulaire de contact', 'esgi'),
+        'description' => __('Sélectionnez le formulaire de contact à afficher dans le thème.', 'esgi'),
+        'section'     => 'esgi_contact_contact_form',
+        'choices'     => esgi_contact_get_contact_form_choices(),
+    ));
+}
+
+function esgi_contact_get_contact_form_choices()
+{
+    $contact_forms = get_posts(array(
+        'post_type'      => 'wpcf7_contact_form',
+        'posts_per_page' => 1,
+    ));
+
+    $choices = array();
+
+    foreach ($contact_forms as $form) {
+        $choices[$form->ID] = $form->post_title;
+    }
+
+    return $choices;
+}
+
+function form_contact()
+{
+    $contact_form_id = get_theme_mod('esgi_contact_selected_contact_form');
+
+    if ($contact_form_id) {
+        echo do_shortcode('[contact-form-7 id="' . $contact_form_id . '" title="Formulaire de contact"]');
+    }
 }
