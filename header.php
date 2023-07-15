@@ -17,7 +17,7 @@ $page = get_all_pages();
 </head>
 
 <body <?php body_class(); ?>>
-    <header>
+    <header class="fixed w-full bg-white">
         <div id="divSansMenu" class="w-[100%] h-[135px] px-[30px] lg:px-[50px] xl:px-[150px] flex items-center justify-between">
             <a href="/" class="w-[140px] h-[42px]">
                 <img src="<?php echo img_uri(); ?>svg/logo.svg" alt="logo" />
