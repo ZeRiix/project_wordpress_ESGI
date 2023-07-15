@@ -23,7 +23,7 @@ $page = get_all_pages();
                 <img src="<?php echo img_uri(); ?>svg/logo.svg" alt="logo" />
             </a>
             
-            <button id="btnToggle" class="w-10 h-2.5 flex flex-col justify-around">
+            <button id="btnToggle" class="w-10 px-[10px] flex flex-col gap-[2px]">
                 <div class="w-10 h-[3px] bg-slate-900"></div>
 
                 <div class="w-[21px] h-[3px] bg-slate-900"></div>

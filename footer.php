@@ -1,4 +1,4 @@
-    <footer class="w-[100%] min-h-[380px] mt-[32px] lg:mt-[65px] xl:mt-[130px] p-[30px] lg:p-[50px] xl:px-[150px] xl:py-[75px] flex flex-col justify-between gap-[30px] lg:gap-0 bg-slate-900">
+    <footer class="w-[100%] min-h-[380px] p-[30px] lg:p-[50px] xl:px-[150px] xl:py-[75px] flex flex-col justify-between gap-[30px] lg:gap-0 bg-slate-900">
         <div class="flex flex-col lg:flex-row justify-between gap-[30px] lg:gap-0">
             <a href="/" class="w-[115px] lg:w-[230px] h-[35px] lg:h-[70px]">
                 <img src="<?php echo img_uri(); ?>svg/logo-white.svg" alt="logo" class="w-full h-full" />
