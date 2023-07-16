@@ -21,26 +21,3 @@
 </main>
 
 <?php get_footer(); ?>
-
-<?php
-$the_query = new WP_Query(array(
-    'category_name' => 'aboutus',
-    'post_status' => 'publish',
-    'posts_per_page' => 1,
-));
-
-$the_query2 = new WP_Query(array(
-    'category_name' => 'aboutus',
-    'post_status' => 'publish',
-    'posts_per_page' => 1,
-));
-
-if ($the_query->have_posts()) {
-    while ($the_query->have_posts()) {
-        $the_query->the_post();
-        echo '<h2>' . get_the_title() . '</h2>';
-        $test = explode('<!--more-->', get_the_content());
-        var_dump($test);
-    }
-}
-?>
