@@ -32,7 +32,7 @@ $page = get_all_pages();
         </div>
 
         <div id="divMenu"
-            class="fixed z-50 top-[-820px] left-0 w-full px-[30px] pb-[80px] lg:pb-[160px] lg:px-[50px] xl:px-[150px] bg-slate-900 transition-all duration-500">
+            class="fixed z-50 top-[-925px] left-0 w-full px-[30px] pb-[80px] lg:pb-[160px] lg:px-[50px] xl:px-[150px] bg-slate-900 transition-all duration-500">
             <div class="w-[100%] h-[135px] flex items-center justify-between">
                 <a href="/" class="w-[140px] h-[42px]">
                     <img src="<?php echo esgi_get_site_logo()['logo_white']; ?>" alt="logo" />
