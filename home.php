@@ -6,7 +6,7 @@
         <h1 class="text-3xl lg:text-5xl xl:text-7xl font-semibold text-slate-900">A really professional structure<br class="hidden lg:block">for all your events!</h1>
 
         <div class="w-full max-w-[1490px] self-end">
-            <img src="<?php echo img_uri() ?>png/1.png">
+            <img src="<?php echo img_uri() ?>png/1.png" class="w-full">
         </div>
     </section>
 
