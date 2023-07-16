@@ -3,7 +3,7 @@
         <img src="<?php echo img_uri() ?>png/2.png">
     </div>
 
-    <ul class="max-w-[640px] flex flex-col gap-[60px]">
+    <ul class="max-w-[640px] ml-0 lg:ml-[30px] flex flex-col gap-[60px]">
         <li>
             <h3 class="mb-[20px] text-xl lg:text-3xl xl:text-5xl text-slate-900">Who are we?</h3>
             
