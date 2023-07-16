@@ -1,9 +1,9 @@
 <div class="w-full max-w-[1490px] mr-[30px] lg:mr-[50px] xl:mr-[150px] flex flex-col lg:flex-row gap-[32px] lg:gap-0 justify-between items-center">
-    <div class="w-full max-w-[660px] dis">
+    <div class="w-full max-w-[440px] lg:max-w-[640px] dis">
         <img src="<?php echo img_uri() ?>png/2.png">
     </div>
 
-    <ul class="max-w-[640px] ml-0 lg:ml-[30px] flex flex-col gap-[60px]">
+    <ul class="max-w-[440px] lg:max-w-[640px] ml-0 lg:ml-[30px] flex flex-col gap-[30px] lg:gap-[60px]">
         <li>
             <h3 class="mb-[20px] text-xl lg:text-3xl xl:text-5xl text-slate-900">Who are we?</h3>
             
