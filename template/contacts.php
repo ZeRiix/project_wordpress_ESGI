@@ -1,11 +1,13 @@
 <?php get_header(); ?>
 
 <main class="max-w-[1920px] pt-[135px] px-[30px] pb-[30px] mx-auto">
-    <section class="ml-[30px] lg:ml-[50px] xl:ml-[150px] mb-[65px] xl:mb-[130px] flex flex-col gap-[32px] lg:gap-[65px] xl:gap-[130px]">
+    <section
+        class="ml-[30px] lg:ml-[50px] xl:ml-[150px] mb-[65px] xl:mb-[130px] flex flex-col gap-[32px] lg:gap-[65px] xl:gap-[130px]">
         <div>
             <h1 class="mb-[48px] text-3xl lg:text-5xl xl:text-7xl font-semibold text-slate-900">Contacts</h1>
-        
-            <p class="text-lg lg:text-xl xl:text-2xl text-zinc-500">A desire for a big big party or a very select congress? Contact us.</p>
+
+            <p class="text-lg lg:text-xl xl:text-2xl text-zinc-500">A desire for a big big party or a very select
+                congress? Contact us.</p>
         </div>
 
         <div class="w-full max-w-[1490px] self-end">
@@ -13,25 +15,25 @@
                 <div class="flex flex-col gap-[10px] text-center lg:text-right">
                     <h5 class="mb-[15px] text-base lg:text-xl xl:text-3xl font-semibold text-slate-900">Location</h5>
 
-                    <span class="text-zinc-500">242 Rue du Faubourg Saint-Antoine</span>
+                    <span class="text-zinc-500"><?php echo esgi_get_services()['location_desk']['street']; ?></span>
 
-                    <span class="text-zinc-500">75020 Paris FRANCE</span>
+                    <span class="text-zinc-500"><?php echo esgi_get_services()['location_desk']['region']; ?></span>
                 </div>
 
                 <div class="flex flex-col gap-[10px] text-center lg:text-right">
                     <h5 class="mb-[15px] text-base lg:text-xl xl:text-3xl font-semibold text-slate-900">Manager</h5>
 
-                    <span class="text-zinc-500">+33 1 53 31 25 23</span>
+                    <span class="text-zinc-500"><?php echo esgi_get_services()['manager']['phone']; ?></span>
 
-                    <span class="text-zinc-500">info@company.com</span>
+                    <span class="text-zinc-500"><?php echo esgi_get_services()['manager']['email']; ?></span>
                 </div>
 
                 <div class="flex flex-col gap-[10px] text-center lg:text-right">
                     <h5 class="mb-[15px] text-base lg:text-xl xl:text-3xl font-semibold text-slate-900">CEO</h5>
 
-                    <span class="text-zinc-500">+33 1 53 31 25 25</span>
+                    <span class="text-zinc-500"><?php echo esgi_get_services()['ceo']['phone']; ?></span>
 
-                    <span class="text-zinc-500">ceo@company.com</span>
+                    <span class="text-zinc-500"><?php echo esgi_get_services()['ceo']['email']; ?></span>
                 </div>
             </div>
 
@@ -45,7 +47,7 @@
 
             <p class="text-lg lg:text-xl xl:text-2xl text-zinc-500">Go! Don’t be shy.</p>
         </div>
-        
+
         <div class="contact-form max-w-[1050px] text-zinc-400 text-xl font-normal leading-[38px]">
             <?php form_contact(); ?>
 
@@ -68,28 +70,28 @@
 </main>
 
 <style type="text/css">
-    .wpcf7-form {
-        max-width: 1050px;
-    }
+.wpcf7-form {
+    max-width: 1050px;
+}
 
-    .wpcf7-form p {
-        width: 100%;
-    }
+.wpcf7-form p {
+    width: 100%;
+}
 
-    .wpcf7-text {
-        margin-bottom: 20px;
-        width: 100%;
-        outline: none;
-        border-bottom: 1px solid rgb(161 161 170);
-    }
+.wpcf7-text {
+    margin-bottom: 20px;
+    width: 100%;
+    outline: none;
+    border-bottom: 1px solid rgb(161 161 170);
+}
 
-    .wpcf7-textarea {
-        margin-bottom: 20px;
-        width: 100%;
-        height: 180px;
-        outline: none;
-        border: 1px solid rgb(161 161 170);
-    }
-    </style>
+.wpcf7-textarea {
+    margin-bottom: 20px;
+    width: 100%;
+    height: 180px;
+    outline: none;
+    border: 1px solid rgb(161 161 170);
+}
+</style>
 
 <?php get_footer(); ?>
