@@ -38,14 +38,14 @@
     </footer>
 
     <script>
-    btnToggle.addEventListener("click", () => {
-        divMenu.style.top = "0";
+        btnToggle.addEventListener("click", () => {
+            divMenu.style.top = "0";
 
-    });
+        });
 
-    btnToggleMenu.addEventListener("click", () => {
-        divMenu.style.top = "-820px";
-    });
+        btnToggleMenu.addEventListener("click", () => {
+            divMenu.style.top = "-820px";
+        }); 
     </script>
 
     <?php wp_footer(); ?>

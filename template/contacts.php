@@ -79,6 +79,7 @@
     .wpcf7-text {
         margin-bottom: 20px;
         width: 100%;
+        outline: none;
         border-bottom: 1px solid rgb(161 161 170);
     }
 
@@ -86,6 +87,7 @@
         margin-bottom: 20px;
         width: 100%;
         height: 180px;
+        outline: none;
         border: 1px solid rgb(161 161 170);
     }
     </style>

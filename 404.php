@@ -1,56 +1,52 @@
 <?php get_header(); ?>
-<div class="w-[100%] h-[994px] relative bg-slate-900">
-    <div class="w-[1800px] h-[397px] left-0 top-[597px] absolute">
-        <div class="w-[1800px] h-[397px] left-0 top-0 absolute bg-slate-900"></div>
-        <div class="pr-[303px] left-[159px] top-[296px] absolute justify-start items-center inline-flex">
-            <div class="text-white text-[15px] font-normal">2022 Figma Template by ESGI</div>
+
+<main class="min-h-[calc(100vh-380px)] pt-[135px] mx-auto bg-slate-900">
+    <section class="max-w-[1050px] mt-[40px] xl:mt-[80px] px-[30px] lg:px-[50px] xl:px-[150px] pb-[65px] xl:pb-[130px] flex flex-col gap-[50px]">
+        <h1 class="text-4xl lg:text-6xl xl:text-8xl font-semibold text-white">404 Error</h1>
+    
+        <p class="mb-[10px] text-xl lg:text-2xl xl:text-3xl text-white">The page you were looking for couldn't be found.<br>Maybe try a search?</p>
+    
+        <div class="relative z-0">
+            <?php get_search_form(); ?>
         </div>
-        <div class="w-[70.31px] h-5 left-[1690px] top-[297px] absolute">
-            <img class="w-5 h-5 left-[-0px] top-0 absolute" src="https://via.placeholder.com/20x20" />
-        </div>
-        <div class="w-[183px] h-[137px] left-[1302px] top-[90px] absolute">
-            <div class="left-[97px] top-[7px] absolute text-white text-xl font-bold">Manager</div>
-            <div class="left-[12px] top-[59px] absolute text-white text-xl font-normal leading-[38px]">+33 1 53 31
-                25 23
-            </div>
-            <div class="left-[49px] top-[99px] absolute text-white text-xl font-normal leading-[38px]">info@esgi.com
-            </div>
-        </div>
-        <div class="w-[183px] h-[137px] left-[1579px] top-[90px] absolute">
-            <div class="left-[141px] top-[7px] absolute text-white text-xl font-bold">CEO</div>
-            <div class="left-[13px] top-[59px] absolute text-white text-xl font-normal leading-[38px]">+33 1 53 31
-                25 25
-            </div>
-            <div class="left-[5px] top-[99px] absolute text-white text-xl font-normal leading-[38px]">
-                ceo@company.com
-            </div>
-        </div>
-    </div>
-    <div class="w-[1053px] h-[342px] left-[157px] top-[211px] absolute">
-        <div class="w-[1051px] h-12 left-[2px] top-[294px] absolute">
-            <div class="left-0 top-0 absolute opacity-50 text-white text-xl font-normal leading-[38px]">Type
-                something
-                to search…</div>
-            <img class="w-4 h-4 left-[1035px] top-[11px] absolute" src="https://via.placeholder.com/16x16" />
-        </div>
-        <div
-            class="w-[946px] h-[84px] pr-[357px] pt-[3px] left-[3px] top-[149px] absolute justify-start items-center inline-flex">
-            <div class="text-white text-[26px] font-normal leading-[42px]">The page you were looking for couldn't be
-                found. Maybe try a search?</div>
-        </div>
-        <div class="w-[387px] h-[105px] pr-0.5 left-0 top-0 absolute justify-center items-center inline-flex">
-            <div class="text-white text-[84px] font-semibold">404 Error.</div>
-        </div>
-    </div>
-    <div class="w-[1800px] h-[135px] left-0 top-0 absolute">
-        <div class="w-[1800px] h-[135px] left-0 top-0 absolute bg-slate-900"></div>
-        <div class="w-10 h-2.5 left-[1720px] top-[61px] absolute">
-            <div class="w-10 h-[3px] left-0 top-0 absolute bg-white"></div>
-            <div class="w-[21px] h-[3px] left-[19px] top-[7px] absolute bg-white"></div>
-        </div>
-        <div class="w-[138px] h-[41.40px] left-[158px] top-[48.40px] absolute">
-            <div class="w-[138px] h-[41.40px] left-0 top-0 absolute"></div>
-        </div>
-    </div>
-</div>
+    </section>
+</main>
+
+<script>
+    const header = document.getElementById("header");
+    const burgerLines = document.querySelectorAll(".burger-line");
+    const logo = document.getElementById("logo");
+
+    header.classList.add("!bg-slate-900");
+    burgerLines.forEach(burgerLine => {
+        burgerLine.classList.add("!bg-white");
+    });
+    logo.src = "<?php echo img_uri(); ?>svg/logo-white.svg";
+</script>
+
+<style type="text/css">
+    .searchform input[name="s"] {
+        width: 100%;
+        padding-bottom: 10px;
+        outline: none;
+        color: white;
+        border-bottom: 2px solid #4a5568;
+        background-color: transparent;
+    }
+
+    .searchform input[type="submit"] {
+        position: absolute;
+        right: 0;
+        cursor: pointer;
+        /* hide text */
+        text-indent: -9999px;
+        /* add icon */
+        background-image: url('https://nas-mat.synology.me/hosted-img/icons/search.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 16px;
+        height: 16px;
+    }
+</style>
+
 <?php get_footer(); ?>

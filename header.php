@@ -17,16 +17,16 @@ $page = get_all_pages();
 </head>
 
 <body <?php body_class(); ?>>
-    <header class="fixed w-full bg-white">
+    <header id="header" class="fixed w-full bg-white">
         <div id="divSansMenu" class="w-[100%] h-[135px] px-[30px] lg:px-[50px] xl:px-[150px] flex items-center justify-between">
             <a href="/" class="w-[140px] h-[42px]">
-                <img src="<?php echo img_uri(); ?>svg/logo.svg" alt="logo" />
+                <img id="logo" src="<?php echo img_uri(); ?>svg/logo.svg" alt="logo" />
             </a>
             
             <button id="btnToggle" class="w-10 px-[10px] flex flex-col gap-[2px]">
-                <div class="w-10 h-[3px] bg-slate-900"></div>
+                <div class="burger-line w-10 h-[3px] bg-slate-900"></div>
 
-                <div class="w-[21px] h-[3px] bg-slate-900"></div>
+                <div class="burger-line w-[21px] h-[3px] bg-slate-900"></div>
             </button>
         </div>
 
