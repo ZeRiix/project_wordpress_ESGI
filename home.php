@@ -26,7 +26,7 @@
     </section>
 
     <!-- Services section -->
-    <section class=" mb-[32px] lg:mb-[65px] xl:mb-[130px]">
+    <section class="mb-[32px] lg:mb-[65px] xl:mb-[130px]">
         <h2 class="ml-[30px] lg:ml-[50px] xl:ml-[150px] mb-[64px] text-2xl lg:text-4xl xl:text-6xl text-slate-900">Our Services</h2>
 
         <?php include 'template/includes/our-services.php' ?>
