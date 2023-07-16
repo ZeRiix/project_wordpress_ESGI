@@ -72,10 +72,18 @@ $page = get_all_pages();
                                 class="text-white text-[20px] lg:text-[35px] xl:text-[70px] font-semibold">Blog</a>
                         </li>
 
-                        <!-- <li>
+                        <?php $pass = false;
+                        foreach (esgi_get_partners() as $key => $value) {
+                            if ($value != false || $value !== "") {
+                                $pass = true;
+                            }
+                        }
+                        if ($pass) { ?>
+                        <li>
                             <a href="<?php page_uri('partners') ?>"
                                 class="text-white text-[20px] lg:text-[35px] xl:text-[70px] font-semibold">Partners</a>
-                        </li> -->
+                        </li>
+                        <?php } ?>
 
                         <li>
                             <a href="<?php page_uri('contacts') ?>"
