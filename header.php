@@ -23,8 +23,8 @@ $page = get_all_pages();
                 <img id="logo" src="<?php echo img_uri(); ?>svg/logo.svg" alt="logo" />
             </a>
             
-            <button id="btnToggle" class="w-10 px-[10px] flex flex-col gap-[2px]">
-                <div class="burger-line w-10 h-[3px] bg-slate-900"></div>
+            <button id="btnToggle" class="w-10 px-[10px] flex flex-col items-end gap-[4px]">
+                <div class="burger-line w-[40px] h-[3px] bg-slate-900"></div>
 
                 <div class="burger-line w-[21px] h-[3px] bg-slate-900"></div>
             </button>
@@ -43,7 +43,8 @@ $page = get_all_pages();
                 </button>
             </div>
 
-            <div class="flex justify-end">
+            <div class="flex text-white justify-between">
+                <h3 class="text-2xl">Or try search</h3>
                 <nav>
                     <ul class="flex flex-col items-end">
                         <li>

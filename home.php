@@ -3,7 +3,7 @@
 <main class="max-w-[1920px] pt-[135px] px-[30px] pb-[30px] mx-auto">
     <!-- Hero section -->
     <section class="ml-[30px] lg:ml-[50px] xl:ml-[150px] mb-[65px] xl:mb-[130px] flex flex-col gap-[58px] lg:gap-[115px] xl:gap-[230px]">
-        <h1 class="text-3xl lg:text-5xl xl:text-7xl font-semibold text-slate-900">A really professional structure<br class="hidden lg:block">for all your events!</h1>
+        <h1 class="text-3xl lg:text-5xl xl:text-7xl text-slate-900">A really professional structure<br class="hidden lg:block">for all your events!</h1>
 
         <div class="w-full max-w-[1490px] self-end">
             <img src="<?php echo img_uri() ?>png/1.png" class="w-full">
@@ -34,6 +34,8 @@
 
     <!-- Partners section -->
     <section class="mb-[65px] xl:mb-[130px]">
+        <h2 class="ml-[30px] lg:ml-[50px] xl:ml-[150px] mb-[64px] text-2xl lg:text-4xl xl:text-6xl text-slate-900">Our Partners</h2>
+
         <?php include 'template/includes/our-parteners.php' ?>
     </section>
 </main>
