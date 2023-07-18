@@ -46,7 +46,7 @@ btnToggle.addEventListener("click", () => {
 });
 
 btnToggleMenu.addEventListener("click", () => {
-    divMenu.style.top = "-925px";
+    divMenu.style.top = "-950px";
 });
     </script>
 
