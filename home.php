@@ -1,9 +1,8 @@
 <?php get_header(); ?>
 
-<main class="max-w-[1920px] pt-[135px] px-[30px] pb-[30px] mx-auto">
+<main class="max-w-[1920px] pt-[135px] mx-auto">
     <!-- Hero section -->
-    <section
-        class="ml-[30px] lg:ml-[50px] xl:ml-[150px] mb-[65px] xl:mb-[130px] flex flex-col gap-[58px] lg:gap-[115px] xl:gap-[230px]">
+    <section class="ml-[30px] lg:ml-[50px] xl:ml-[150px] mb-[65px] xl:mb-[130px] flex flex-col gap-[58px] lg:gap-[115px] xl:gap-[230px]">
         <h1 class="text-3xl lg:text-5xl xl:text-7xl font-semibold text-slate-900">A really professional structure<br
                 class="hidden lg:block">for all your events!</h1>
 
@@ -13,15 +12,17 @@
     </section>
 
     <!-- About section -->
-    <section class="mb-[65px] xl:mb-[130px] flex flex-col gap-[32px] lg:gap-[65px] xl:gap-[130px]">
-        <div class="w-full max-w-[1490px] ml-[30px] lg:ml-[50px] xl:ml-[150px] self-end">
-            <div class="max-w-[900px]">
-                <h2 class="mb-[20px] text-2xl lg:text-4xl xl:text-6xl text-slate-900">About Us</h2>
+    <section class="mb-[65px] xl:mb-[130px] flex flex-col gap-[32px] lg:gap-[65px] xl:gap-[130px] flex flex-col">
+        <div class="ml-[30px] lg:ml-[50px] xl:ml-[150px] flex justify-end">
+            <div class="w-full max-w-[1490px] self-end">
+                <div class="w-full max-w-[900px]">
+                    <h2 class="mb-[20px] text-2xl lg:text-4xl xl:text-6xl text-slate-900">About Us</h2>
 
-                <p class="text-lg lg:text-xl xl:text-2xl text-zinc-500">
-                    Specializing in the creation of exceptional events for private and corporate clients, we design,
-                    plan and manage every project from conception to execution.
-                </p>
+                    <p class="text-lg lg:text-xl xl:text-2xl text-zinc-500">
+                        Specializing in the creation of exceptional events for private and corporate clients, we design,
+                        plan and manage every project from conception to execution.
+                    </p>
+                </div>
             </div>
         </div>
 

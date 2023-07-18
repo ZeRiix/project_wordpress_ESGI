@@ -1,8 +1,7 @@
 <?php get_header(); ?>
 
-<main class="max-w-[1920px] pt-[135px] px-[30px] pb-[30px] mx-auto">
-    <section
-        class="ml-[30px] lg:ml-[50px] xl:ml-[150px] mb-[65px] xl:mb-[130px] flex flex-col gap-[32px] lg:gap-[65px] xl:gap-[130px]">
+<main class="max-w-[1920px] pt-[135px] mx-auto">
+    <section class="ml-[30px] lg:ml-[50px] xl:ml-[150px] mb-[65px] xl:mb-[130px] flex flex-col gap-[32px] lg:gap-[65px] xl:gap-[130px]">
         <div>
             <h1 class="mb-[48px] text-3xl lg:text-5xl xl:text-7xl font-semibold text-slate-900">Contacts</h1>
 
@@ -11,7 +10,7 @@
         </div>
 
         <div class="w-full max-w-[1490px] self-end">
-            <div class="mb-[65px] xl:mb-[130px] flex flex-col lg:flex-row justify-center lg:justify-end gap-[90px]">
+            <div class="mr-[30px] lg:mr-[50px] xl:mr-[150px] mb-[65px] xl:mb-[130px] flex flex-col lg:flex-row justify-center lg:justify-end gap-[90px]">
                 <div class="flex flex-col gap-[10px] text-center lg:text-right">
                     <h5 class="mb-[15px] text-base lg:text-xl xl:text-3xl font-semibold text-slate-900">Location</h5>
 
@@ -41,7 +40,7 @@
         </div>
     </section>
 
-    <section class="mb-[65px] xl:mb-[130px]">
+    <section class="ml-[30px] lg:ml-[50px] xl:ml-[150px] mb-[65px] xl:mb-[130px]">
         <div class="mb-[60px]">
             <h2 class="mb-[20px] text-2xl lg:text-4xl xl:text-6xl text-slate-900">Write us here</h2>
 

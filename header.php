@@ -24,10 +24,10 @@ $page = get_all_pages();
                 <img id="logo" src="<?php echo esgi_get_site_logo()['logo']; ?>" alt="logo" />
             </a>
 
-            <button id="btnToggle" class="w-10 px-[10px] flex flex-col gap-[2px]">
-                <div class="burger-line w-10 h-[3px] bg-slate-900"></div>
+            <button id="btnToggle" class="p-[10px] flex flex-col items-end gap-[4px]">
+                <div class="burger-line w-[40px] h-[3px] bg-slate-900"></div>
 
-                <div class="burger-line w-[21px] h-[3px] bg-slate-900"></div>
+                <div class="burger-line w-[20px] h-[3px] bg-slate-900"></div>
             </button>
         </div>
 
