@@ -1,5 +1,12 @@
-<?php get_header(); ?>
-<div class="w-[100%] h-[2611px] relative">
+<?php
+if (isset($_GET['p'])) {
+    $post = get_post_by_id($_GET['p']);
+    add_comment($_GET['p'], $_POST['message'], $_POST['author']);
+    $comments = get_comments_by_post_id($_GET['p']);
+}
+?>
+<!-- <div class="w-[100%] h-[2611px] relative">
+
     <div class="w-[1053px] h-[427px] left-[553px] top-[2184px] absolute">
         <div class="w-[1051px] h-[322px] left-[2px] top-[105px] absolute">
             <div class="w-[76px] h-[25px] pr-px left-0 top-[297px] absolute justify-center items-center inline-flex">
@@ -21,16 +28,13 @@
     <div class="w-[1053px] h-[367px] left-[553px] top-[1678px] absolute">
         <div class="w-[1050px] h-[252px] left-[3px] top-[115px] absolute">
             <div class="w-[1050px] h-[252px] left-0 top-0 absolute bg-stone-50"></div>
-            <div
-                class="w-[91px] h-[25px] pr-px left-[38px] top-[195px] absolute justify-center items-center gap-[15px] inline-flex">
+            <div class="w-[91px] h-[25px] pr-px left-[38px] top-[195px] absolute justify-center items-center gap-[15px] inline-flex">
                 <div class="text-slate-900 text-xl font-extrabold tracking-wide">Reply</div>
             </div>
-            <div
-                class="w-[970px] h-[75px] left-[40px] top-[91px] absolute text-zinc-500 text-xl font-normal leading-[38px]">
+            <div class="w-[970px] h-[75px] left-[40px] top-[91px] absolute text-zinc-500 text-xl font-normal leading-[38px]">
                 Sed sed nulla et mauris cursus rhoncus id id quam. Curabitur at varius ligula. Interdum et malesuada
                 fames ac ante ipsum primis in faucibus. Maecenas aliquet eros sed nibh finibus.</div>
-            <div
-                class="w-[137px] h-[34px] pr-[13px] left-[38px] top-[32px] absolute justify-start items-center inline-flex">
+            <div class="w-[137px] h-[34px] pr-[13px] left-[38px] top-[32px] absolute justify-start items-center inline-flex">
                 <div class="text-slate-900 text-[27px] font-bold">John Ford</div>
             </div>
         </div>
@@ -53,14 +57,12 @@
                 <div class="text-neutral-400 text-[13px] font-bold">Web</div>
             </div>
         </div>
-        <div class="w-[1051px] left-[555px] top-[964px] absolute"><span
-                class="text-slate-900 text-xl font-normal leading-[38px]">Nunc sed imperdiet nisl, quis auctor nisi.
+        <div class="w-[1051px] left-[555px] top-[964px] absolute"><span class="text-slate-900 text-xl font-normal leading-[38px]">Nunc sed imperdiet nisl, quis auctor nisi.
                 Phasellus at sollicitudin nisl. Proin luctus sem ut vulputate feugiat. Maecenas ac nisl velit. Donec
                 aliquet tincidunt risus ut faucibus. Donec sit amet metus vel velit consequat pulvinar. Donec
                 eleifend mi non mauris scelerisque, id gravida neque euismod. Fusce nulla nibh, dapibus sit amet
                 dolor at, dignissim laoreet tortor. Donec at justo turpis. Sed cursus mollis dui, eget euismod eros
-                auctor non.<br /></span><span
-                class="text-zinc-500 text-xl font-normal leading-[38px]"><br />Pellentesque habitant morbi tristique
+                auctor non.<br /></span><span class="text-zinc-500 text-xl font-normal leading-[38px]"><br />Pellentesque habitant morbi tristique
                 senectus et netus et malesuada fames ac turpis egestas. Maecenas et ex enim. Sed sed nulla et mauris
                 cursus rhoncus id id quam. Curabitur at varius ligula. Interdum et malesuada fames ac ante ipsum
                 primis in faucibus. Maecenas aliquet eros sed nibh finibus, ut placerat est condimentum. Phasellus a
@@ -100,23 +102,19 @@
             </div>
         </div>
         <div class="w-[174px] h-[326px] left-0 top-[953px] absolute">
-            <div
-                class="w-[99px] h-[38px] pr-px left-[1px] top-[288px] absolute justify-center items-center gap-4 inline-flex">
+            <div class="w-[99px] h-[38px] pr-px left-[1px] top-[288px] absolute justify-center items-center gap-4 inline-flex">
                 <div class="text-zinc-500 text-xl font-normal leading-[38px]">Creative</div>
             </div>
-            <div
-                class="w-[77px] h-[38px] left-[1px] top-[229px] absolute justify-center items-center gap-4 inline-flex">
+            <div class="w-[77px] h-[38px] left-[1px] top-[229px] absolute justify-center items-center gap-4 inline-flex">
                 <div class="text-zinc-500 text-xl font-normal leading-[38px]">HTML</div>
             </div>
             <div class="w-40 h-[38px] left-[1px] top-[170px] absolute justify-center items-center gap-4 inline-flex">
                 <div class="text-zinc-500 text-xl font-normal leading-[38px]">Graphic design</div>
             </div>
-            <div
-                class="w-[173px] h-[38px] pr-0.5 left-[1px] top-[111px] absolute justify-center items-center gap-4 inline-flex">
+            <div class="w-[173px] h-[38px] pr-0.5 left-[1px] top-[111px] absolute justify-center items-center gap-4 inline-flex">
                 <div class="text-zinc-500 text-xl font-normal leading-[38px]">Web developing</div>
             </div>
-            <div
-                class="w-[127px] h-[38px] left-[1px] top-[52px] absolute justify-center items-center gap-4 inline-flex">
+            <div class="w-[127px] h-[38px] left-[1px] top-[52px] absolute justify-center items-center gap-4 inline-flex">
                 <div class="text-zinc-500 text-xl font-normal leading-[38px]">Advertising</div>
             </div>
             <div class="w-[103px] h-[25px] left-0 top-0 absolute justify-center items-center inline-flex">
@@ -145,8 +143,7 @@
             <div class="w-[500px] h-[100px] left-[1px] top-[321px] absolute">
                 <div class="left-[116px] top-[84px] absolute text-zinc-400 text-[13px] font-normal">12 May, 2022
                 </div>
-                <div
-                    class="w-[383px] left-[117px] top-[-0px] absolute text-zinc-500 text-xl font-normal leading-[38px]">
+                <div class="w-[383px] left-[117px] top-[-0px] absolute text-zinc-500 text-xl font-normal leading-[38px]">
                     Mauris venenatis fermentum pellentesque. </div>
                 <div class="w-[88px] h-[88px] left-0 top-[9px] absolute">
                     <img class="w-[88px] h-[88px] left-0 top-0 absolute" src="https://via.placeholder.com/88x88" />
@@ -156,8 +153,7 @@
             <div class="w-[500px] h-[100px] left-[1px] top-[188px] absolute">
                 <div class="left-[116px] top-[84px] absolute text-zinc-400 text-[13px] font-normal">12 May, 2022
                 </div>
-                <div
-                    class="w-[383px] left-[117px] top-[-0px] absolute text-zinc-500 text-xl font-normal leading-[38px]">
+                <div class="w-[383px] left-[117px] top-[-0px] absolute text-zinc-500 text-xl font-normal leading-[38px]">
                     Mauris venenatis fermentum pellentesque. </div>
                 <div class="w-[88px] h-[88px] left-0 top-[9px] absolute">
                     <img class="w-[88px] h-[88px] left-0 top-0 absolute" src="https://via.placeholder.com/88x88" />
@@ -186,6 +182,23 @@
                 <div class="text-slate-900 text-xl font-bold">Search</div>
             </div>
         </div>
-    </div>
-</div>
-<?php get_footer(); ?>
+    </div> -->
+<div class="h-[200px]"></div>
+
+<h1><?= $post['title'] ?></h1>
+<p><?= $post['content'] ?></p>
+
+<h1>Comments <?= count($comments) ?></h1>
+<?php foreach ($comments as $comment) {
+    if (!empty($comment["author"]) && !empty($comment["content"])) {
+        echo $comment["author"] . " : <br> " . $comment["content"] . "<br/>";
+    }
+} ?>
+
+<form class="flex flex-col" action="<?php echo get_current_uri() ?>" method="POST">
+    <label for="reply">Leave a reply</label>
+    <input type="text" placeholder="Full name" name="author" />
+    <input type="text" placeholder="Message" name="message" />
+    <input type="submit" value="Submit" />
+
+</form>

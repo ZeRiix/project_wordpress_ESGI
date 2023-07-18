@@ -62,32 +62,6 @@ function esgi_handle_custom_route()
 }
 add_action('template_redirect', 'esgi_handle_custom_route');
 
-function esgi_display_posts()
-{
-    $args = array(
-        'post_type'      => 'post',
-        'posts_per_page' => 5,
-    );
-
-    $query = new WP_Query($args);
-
-    if ($query->have_posts()) {
-        echo '<div class="custom-posts-wrapper">';
-
-        while ($query->have_posts()) {
-            $query->the_post();
-
-            // todo faire le balisage propremement avec taillwind
-        }
-
-        echo '</div>';
-    } else {
-        echo 'Auncun articles n\'a été publier pour le moment';
-    }
-
-    wp_reset_postdata();
-}
-
 function get_all_pages()
 {
     $pages = get_pages();
@@ -207,29 +181,33 @@ function esgi_contact_get_contact_form_choices()
 function form_contact()
 {
     $contact_form_id = get_theme_mod('esgi_contact_selected_contact_form');
-
     if ($contact_form_id) {
         echo do_shortcode('[contact-form-7 id="' . $contact_form_id . '" title="Formulaire de contact"]');
     }
 }
 
 // section BLOG
-function get_post_by_category($category)
+function get_post_by_category($category, $page)
 {
     $args = array(
         'post_type' => 'post',
-        'posts_per_page' => -1,
+        'posts_per_page' => 6,
+        'paged' => $page,
         'category_name' => $category,
     );
 
     $query = new WP_Query($args);
-    $result = '';
+    $result = [];
 
     if ($query->have_posts()) {
         while ($query->have_posts()) {
             $query->the_post();
-            $result .= '<h2>' . get_the_title() . '</h2>';
-            $result .= '<p>' . get_the_excerpt() . '</p>';
+            $current_post = array(
+                'title' => get_the_title(),
+                'content' => get_the_excerpt(),
+                'permalink' => get_the_permalink(),
+            );
+            array_push($result, $current_post);
         }
     } else {
         return 'Aucun article ne corespond à votre recherche.';
@@ -246,13 +224,18 @@ function get_recent_post()
     );
 
     $query = new WP_Query($args);
-    $result = '';
+    $result = [];
 
     if ($query->have_posts()) {
         while ($query->have_posts()) {
             $query->the_post();
-            $result .= '<h2>' . get_the_title() . '</h2>';
-            $result .= '<p>' . get_the_excerpt() . '</p>';
+            $current_post = array(
+                'title' => get_the_title(),
+                'content' => get_the_excerpt(),
+                'date' => get_the_date(),
+                'permalink' => get_the_permalink(),
+            );
+            array_push($result, $current_post);
         }
     } else {
         return 'Aucun article ne corespond à votre recherche.';
@@ -285,30 +268,6 @@ function get_list_categories()
     return $result;
 }
 
-function esgi_search_posts($search_query)
-{
-    $args = array(
-        'post_type' => 'post',
-        'posts_per_page' => -1,
-        's' => $search_query,
-    );
-
-    $query = new WP_Query($args);
-    $result = '';
-
-    if ($query->have_posts()) {
-        while ($query->have_posts()) {
-            $query->the_post(); // refaire ele baslisage avec taillwind
-            $result .= '<h2>' . get_the_title() . '</h2>';
-            $result .= '<p>' . get_the_excerpt() . '</p>';
-        }
-    } else {
-        return 'Aucun article ne corespond à votre recherche.';
-    }
-    wp_reset_postdata();
-    return $result;
-}
-
 function get_current_uri(): string
 {
     if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')
@@ -326,18 +285,28 @@ function get_post_per_page($page)
 {
     $args = array(
         'post_type' => 'post',
-        'posts_per_page' => 2,
+        'posts_per_page' => 6,
         'paged' => $page,
     );
 
     $query = new WP_Query($args);
-    $result = '';
+    $result = [];
 
     if ($query->have_posts()) {
         while ($query->have_posts()) {
             $query->the_post();
-            $result .= '<h2>' . get_the_title() . '</h2>';
-            $result .= '<p>' . get_the_excerpt() . '</p>';
+            $categories = get_the_category();
+            $categories_name = [];
+            foreach ($categories as $category) {
+                array_push($categories_name, $category->name);
+            }
+            $current_post = array(
+                'title' => get_the_title(),
+                'content' => get_the_excerpt(),
+                'permalink' => get_the_permalink(),
+                'category' => $categories_name,
+            );
+            array_push($result, $current_post);
         }
     } else {
         return 'Aucun article ne corespond à votre recherche.';
@@ -366,7 +335,7 @@ function get_nb_post(): int
 
 function nb_page($nb_post): int
 {
-    $nb_page = $nb_post / 2;
+    $nb_page = $nb_post / 6;
     return $nb_page;
 }
 
@@ -816,4 +785,113 @@ function esgi_get_partners()
         $partners['logo_' . $i] = get_theme_mod('esgi_partners_logo_' . $i);
     }
     return $partners;
+}
+
+function get_theme_path($path)
+{
+    return getcwd() . '/wp-content/themes/examESGI/' . $path;
+}
+
+add_action('wp_ajax_foobar', 'esgi_search_posts');
+function esgi_search_posts($search_query)
+{
+    $args = array(
+        'post_type' => 'post',
+        'posts_per_page' => -1,
+        's' => $search_query,
+    );
+
+    $query = new WP_Query($args);
+    $result = [];
+
+    if ($query->have_posts()) {
+        while ($query->have_posts()) {
+            $query->the_post();
+            $categories = get_the_category();
+            $categories_name = [];
+            foreach ($categories as $category) {
+                array_push($categories_name, $category->name);
+            }
+            $current_post = array(
+                'title' => get_the_title(),
+                'content' => get_the_excerpt(),
+                'permalink' => get_the_permalink(),
+                'date' => get_the_date(),
+                'category' => $categories_name,
+            );
+            array_push($result, $current_post);
+        }
+    } else {
+        return 'Aucun article ne corespond à votre recherche.';
+    }
+    wp_reset_postdata();
+    return $result;
+}
+
+function delete_argument_uri($param): void
+{
+    $cur = remove_query_arg($param, get_current_uri());
+}
+
+function get_post_by_id($id)
+{
+    $args = array(
+        'post_type' => 'post',
+        'posts_per_page' => 1,
+        'p' => $id,
+    );
+
+    $query = new WP_Query($args);
+    $result = [];
+
+    if ($query->have_posts()) {
+        while ($query->have_posts()) {
+            $query->the_post();
+            $current_post = array(
+                'title' => get_the_title(),
+                'content' => get_the_content(),
+            );
+            $result = $current_post;
+        }
+    } else {
+        return 'Aucun article ne corespond à votre recherche.';
+    }
+    wp_reset_postdata();
+    return $result;
+}
+
+function get_comments_by_post_id($post_id)
+{
+    $args = array(
+        'post_id' => $post_id,
+        'status' => 'approve',
+    );
+
+    $comments = get_comments($args);
+    $result = [];
+
+    if ($comments) {
+        foreach ($comments as $comment) {
+            if (!empty($comment->comment_author) && !empty($comment->comment_content)) {
+                $current_comment = array(
+                    'author' => $comment->comment_author,
+                    'content' => $comment->comment_content,
+                );
+                array_push($result, $current_comment);
+            }
+        }
+    } else {
+        return 'Aucun commentaire ne corespond à votre recherche.';
+    }
+    return $result;
+}
+
+function add_comment($post_id, $comment, $author)
+{
+    $data = array(
+        'comment_post_ID' => $post_id,
+        'comment_author' => $author,
+        'comment_content' => $comment,
+    );
+    wp_insert_comment($data);
 }
