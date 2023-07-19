@@ -17,7 +17,7 @@ $page = get_all_pages();
 </head>
 
 <body <?php body_class(); ?>>
-    <header id="header" class="fixed w-full bg-white">
+    <header id="header" class="fixed z-50 w-full bg-white">
         <div id="divSansMenu"
             class="w-[100%] h-[135px] px-[30px] lg:px-[50px] xl:px-[150px] flex items-center justify-between">
             <a href="/" class="w-[140px] h-[42px]">

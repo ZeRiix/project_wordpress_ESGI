@@ -27,7 +27,7 @@
 <style type="text/css">
     .searchform input[name="s"] {
         width: 100%;
-        padding-bottom: 10px;
+        padding-bottom: 8px;
         outline: none;
         color: white;
         border-bottom: 2px solid #4a5568;
