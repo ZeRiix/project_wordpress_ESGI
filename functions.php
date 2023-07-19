@@ -587,6 +587,11 @@ function esgi_get_site_logo()
     } else {
         $site_logo['logo_white'] = get_template_directory_uri() . '/assets/images/svg/logo-white.svg';
     }
+    if(get_theme_mod('esgi_site_logo_comment_reply')) {
+        $site_logo['comment_reply'] = get_theme_mod('esgi_site_logo_comment_reply');
+    } else {
+        $site_logo['comment_reply'] = get_template_directory_uri() . '/assets/images/png/reply-comment.png';
+    }
     return $site_logo;
 }
 
@@ -742,14 +747,19 @@ function get_post_by_id($id)
     $result = [];
 
     if ($query->have_posts()) {
-        while ($query->have_posts()) {
-            $query->the_post();
-            $current_post = array(
-                'title' => get_the_title(),
-                'content' => get_the_content(),
-            );
-            $result = $current_post;
+        $query->the_post();
+        $categories = get_the_category();
+        $categories_name = [];
+        foreach ($categories as $category) {
+            array_push($categories_name, $category->name);
         }
+        $current_post = array(
+            'title' => get_the_title(),
+            'content' => get_the_content(),
+            'category' => $categories_name,
+            'thumbnail' => get_the_post_thumbnail_url(),
+        );
+        $result = $current_post;
     } else {
         return 'Aucun article ne corespond à votre recherche.';
     }

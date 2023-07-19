@@ -17,7 +17,7 @@ $recent_posts = new WP_Query($args);
     </div>
 
     <div class="relative">
-        <h3 class="mb-[30px] text-lg lg:text-xl text-slate-900">Recent posts</h3>
+        <h3 class="mb-[30px] font-semibold text-lg lg:text-xl text-slate-900">Recent posts</h3>
 
         <div class="flex flex-col gap-[30px]">
             <?php 
@@ -57,7 +57,7 @@ $recent_posts = new WP_Query($args);
     </div>
 
     <div>
-        <h3 class="mb-[30px] text-lg lg:text-xl text-slate-900">Categories</h3>
+        <h3 class="mb-[30px] font-semibold text-lg lg:text-xl text-slate-900">Categories</h3>
 
         <ul class="flex flex-col gap-[20px] categories">
             <?php 
@@ -77,7 +77,7 @@ $recent_posts = new WP_Query($args);
     </div>
 
     <div>
-        <h3 class="mb-[30px] text-lg lg:text-xl text-slate-900">Tags</h3>
+        <h3 class="mb-[30px] font-semibold text-lg lg:text-xl text-slate-900">Tags</h3>
 
         <div class="flex flex-wrap gap-[15px]">
             <?php 

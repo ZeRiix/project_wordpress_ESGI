@@ -28,12 +28,12 @@
             </div>
 
             <div class="flex gap-[30px] mt-[30px]">
-                <a href="<?php echo esgi_get_social_networks()['facebook']['url'] ?>" target="_blank">
-                    <img src="<?php echo img_uri(); ?>svg/facebook.svg" alt="facebook" class="w-[21px] h-[21px]" />
-                </a>
-
                 <a href="<?php echo esgi_get_social_networks()['linkedin']['url'] ?>" target="_blank">
                     <img src="<?php echo img_uri(); ?>svg/linkedin.svg" alt="linkedin" class="w-[21px] h-[21px]" />
+                </a>
+
+                <a href="<?php echo esgi_get_social_networks()['facebook']['url'] ?>" target="_blank">
+                    <img src="<?php echo img_uri(); ?>svg/facebook.svg" alt="facebook" class="w-[21px] h-[21px]" />
                 </a>
             </div>
         </div>

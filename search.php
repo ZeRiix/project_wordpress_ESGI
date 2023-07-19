@@ -1,6 +1,8 @@
 <?php
-if (isset($_GET['s'])) {
+$havePost = false;
+if (!empty($_GET['s'])) {
     $posts = esgi_search_posts(get_search_query());
+    $havePost = true;
 }
 ?>
 <?php get_header() ?>
@@ -16,6 +18,10 @@ if (isset($_GET['s'])) {
                 <div class="w-full h-[4px] bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"></div>
             </div>
         </h1>
+
+        <?php if(!$havePost) { ?>
+        <p class="text-lg lg:text-xl text-zinc-500">No results found.</p>
+        <?php } ?>
 
         <?php if(!is_array($posts)) { ?>
         <p class="text-lg lg:text-xl text-zinc-500"><?= $posts ?></p>

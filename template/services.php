@@ -2,7 +2,7 @@
 
 <main class="max-w-[1920px] mx-auto pt-[135px]">
     <section class="mb-[65px] xl:mb-[130px] flex flex-col gap-[32px] lg:gap-[65px] xl:gap-[130px]">
-        <h1 class="ml-[30px] lg:ml-[50px] xl:ml-[150px] text-3xl lg:text-5xl xl:text-7xl font-semibold text-slate-900">Our Services</h1>
+        <h1 class="ml-[30px] lg:ml-[50px] xl:ml-[150px] text-3xl lg:text-5xl xl:text-7xl font-semibold text-slate-900">Our Services.</h1>
 
         <?php include 'includes/our-services.php' ?>
     </section>

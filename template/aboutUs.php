@@ -3,7 +3,7 @@
 <main class="max-w-[1920px] pt-[135px] mx-auto">
     <section
         class="ml-[30px] lg:ml-[50px] xl:ml-[150px] mb-[65px] xl:mb-[130px] flex flex-col gap-[32px] lg:gap-[65px] xl:gap-[130px]">
-        <h1 class="text-3xl lg:text-5xl xl:text-7xl font-semibold text-slate-900">About us</h1>
+        <h1 class="text-3xl lg:text-5xl xl:text-7xl font-semibold text-slate-900">About us.</h1>
 
         <div class="w-full max-w-[1490px] self-end">
             <img src="<?php echo img_uri() ?>png/4.png" class="w-full">
