@@ -13,7 +13,7 @@ $posts_query = new WP_Query($args);
     <section class="ml-[30px] lg:ml-[50px] xl:ml-[150px] mb-[65px] xl:mb-[130px] flex flex-col gap-[32px] lg:gap-[65px] xl:gap-[130px]">
         <h1 class="text-3xl lg:text-5xl xl:text-7xl font-semibold text-slate-900">Blog</h1>
 
-        <div class="flex flex-col lg:flex-row gap-[30px]">
+        <div class="flex flex-col lg:flex-row gap-[50px]">
             <?php include 'sidebar.php' ?>
 
             <div class="articles">
