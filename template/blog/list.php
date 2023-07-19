@@ -17,7 +17,7 @@ $posts_query = new WP_Query($args);
             <?php include 'sidebar.php' ?>
 
             <div class="articles">
-                <div class="mx-[20px] flex flex-col gap-[30px]">
+                <div class="pr-[20px] flex flex-col gap-[30px]">
                     <div class="grow-0 grid grid-rows-6 sm:grid-rows-3 grid-cols-[repeat(1,minmax(0,500px))] sm:grid-cols-[repeat(2,minmax(0,500px))] gap-[50px]">
                         <?php 
                         if($posts_query->have_posts()){

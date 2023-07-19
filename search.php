@@ -29,7 +29,7 @@ if (isset($_GET['s'])) {
                 <article class="flex flex-col gap-[20px]">
                     <h4 class="mb-[10px] text-lg lg:text-xl xl:text-3xl text-slate-900"><?= $post['title'] ?></h4>
 
-                    <span class="text-lg lg:text-xl text-slate-900 font-bold"><?= $post['category'][0] ?>, <?= wp_date('j F Y', strtotime($post->post_date)) ?></span>
+                    <span class="text-lg lg:text-xl text-slate-900 font-bold"><?= $post['category'][0] ?>, <?= $post['date'] ?></span>
 
                     <p class="text-lg lg:text-xl text-zinc-500 description">
                         <?= $post['content'] ?>

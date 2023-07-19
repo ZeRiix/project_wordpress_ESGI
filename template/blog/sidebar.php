@@ -9,7 +9,7 @@ $args = array(
 $recent_posts = new WP_Query($args);
 ?>
 
-<aside class="relative w-full lg:min-w-[370px] lg:max-w-[500px] pr-[20px] flex flex-col gap-[60px]">
+<aside class="relative w-full lg:min-w-[370px] lg:max-w-[500px] pr-[20px] lg:pr-0 flex flex-col gap-[60px]">
     <div class="relative">
         <h3 class="mb-[30px] text-lg lg:text-xl text-slate-900">Search</h3>
 
