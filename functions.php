@@ -230,11 +230,12 @@ function get_current_uri(): string
 }
 
 // section PAGINATION
-function enqueue_custom_scripts(){
+function enqueue_custom_scripts()
+{
     wp_enqueue_script('pagination-ajax', get_template_directory_uri() . '/assets/js/pagination-ajax.js', array('jquery'), '1.0', true);
 }
 add_action('wp_enqueue_scripts', 'enqueue_custom_scripts');
-  
+
 
 //section SERVICES
 add_action('customize_register', 'esgi_services_customize_resgister');
@@ -587,7 +588,7 @@ function esgi_get_site_logo()
     } else {
         $site_logo['logo_white'] = get_template_directory_uri() . '/assets/images/svg/logo-white.svg';
     }
-    if(get_theme_mod('esgi_site_logo_comment_reply')) {
+    if (get_theme_mod('esgi_site_logo_comment_reply')) {
         $site_logo['comment_reply'] = get_theme_mod('esgi_site_logo_comment_reply');
     } else {
         $site_logo['comment_reply'] = get_template_directory_uri() . '/assets/images/png/reply-comment.png';
@@ -758,6 +759,7 @@ function get_post_by_id($id)
             'content' => get_the_content(),
             'category' => $categories_name,
             'thumbnail' => get_the_post_thumbnail_url(),
+            'date' => get_the_date(),
         );
         $result = $current_post;
     } else {
@@ -802,3 +804,15 @@ function add_comment($post_id, $comment, $author)
     );
     wp_insert_comment($data);
 }
+// plugin
+function activate_required_plugins()
+{
+    $plugins = array(
+        'plugins/contact-form-7/wp-contact-form-7.php',
+    );
+
+    foreach ($plugins as $plugin) {
+        activate_plugin($plugin);
+    }
+}
+// add_action('after_switch_theme', 'activate_required_plugins');
