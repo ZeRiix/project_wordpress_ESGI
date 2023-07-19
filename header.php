@@ -1,69 +1,110 @@
+<?php
+$page = get_all_pages();
+?>
+
 <html lang="fr">
 
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
+
     <title><?php echo bloginfo('name') ?></title>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" src="style.css">
+
+    <?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
-    <div>
-        <div id="divSansMenu" class="w-[100%] h-[135px] relative">
-            <div class="w-[100%] h-[135px] left-0 top-0 absolute bg-white"></div>
-            <button id="btnToggle" class="w-10 h-2.5 right-[100px] top-[61px] absolute">
-                <div class="w-10 h-[3px] left-0 top-0 absolute bg-slate-900"></div>
-                <div class="w-[21px] h-[3px] left-[19px] top-[7px] absolute bg-slate-900"></div>
+    <header id="header" class="fixed z-50 w-full bg-white">
+        <div id="divSansMenu"
+            class="w-[100%] h-[135px] px-[30px] lg:px-[50px] xl:px-[150px] flex items-center justify-between">
+            <a href="/" class="w-[140px] h-[42px]">
+                <img id="logo" src="<?php echo esgi_get_site_logo()['logo']; ?>" alt="logo" />
+            </a>
+
+            <button id="btnToggle" class="p-[10px] flex flex-col items-end gap-[4px]">
+                <div class="burger-line w-[40px] h-[3px] bg-slate-900"></div>
+
+                <div class="burger-line w-[20px] h-[3px] bg-slate-900"></div>
             </button>
-            <div class="w-[140px] h-[42px] left-[160px] top-[48px] absolute">
-                <div class="w-[140px] h-[42px] left-0 top-0 absolute">
-                    <img src="<?php echo img_uri(); ?>svg/logo.svg" alt="logo" />
-                </div>
-            </div>
-            <?php wp_head(); ?>
         </div>
 
-        <div id="divMenu" class="w-[100%] h-[820px] relative z-9999 hidden">
-            <div class="w-[100%] h-[820px] left-0 top-0 absolute bg-slate-900"></div>
-            <div class="w-[307px] h-[606px] left-[1456px] top-[115px] absolute">
-                <div class="w-[195px] h-[88px] left-[112px] top-0 absolute">
-                    <div class="w-[187px] h-[5px] left-[5px] top-[83px] absolute bg-gradient-to-r from-orange-200 to-pink-400">
+        <div id="divMenu"
+            class="fixed z-50 top-[-950px] left-0 w-full px-[30px] pb-[80px] lg:pb-[160px] lg:px-[50px] xl:px-[150px] bg-slate-900 transition-all duration-500">
+            <div class="w-[100%] h-[135px] flex items-center justify-between">
+                <a href="/" class="w-[140px] h-[42px]">
+                    <img src="<?php echo esgi_get_site_logo()['logo_white']; ?>" alt="logo" />
+                </a>
+
+                <button id="btnToggleMenu" class="relative w-[16.99px] h-[16.99px]">
+                    <div
+                        class="w-[21px] h-[3px] left-[2.14px] top-[0.01px] absolute origin-top-left rotate-45 bg-white">
                     </div>
-                    <button class="left-0 top-0 absolute text-white text-[70px] font-semibold" id="hom">Home</button>
-                </div>
-                <button class="left-0 top-[104px] absolute text-white text-[70px] font-semibold" id="abt">About
-                    Us</button>
-                <button class="left-[35px] top-[207px] absolute text-white text-[70px] font-semibold" id="ser">Services</button>
-                <button class="left-[25px] top-[311px] absolute text-white text-[70px] font-semibold" id="par">Partners</button>
-                <button class="left-[158px] top-[414px] absolute text-white text-[70px] font-semibold" id="blo">Blog</button>
-                <button class="left-[13px] top-[518px] absolute text-white text-[70px] font-semibold" id="con">Contacts</button>
+
+                    <div
+                        class="w-[21px] h-[3px] left-[16.97px] top-[2.12px] absolute origin-top-left rotate-[135deg] bg-white">
+                    </div>
+                </button>
             </div>
-            <button id="btnToggleMenu" class="w-[16.99px] h-[16.99px] right-[100px] top-[61px] absolute">
-                <div class="w-[21px] h-[3px] left-[2.14px] top-[0.01px] absolute origin-top-left rotate-45 bg-white">
-                </div>
-                <div class="w-[21px] h-[3px] left-[16.97px] top-[2.12px] absolute origin-top-left rotate-[135deg] bg-white">
-                </div>
-            </button>
-            <div class="pr-px left-[160px] top-[129px] absolute justify-center items-center inline-flex">
-                <div class="text-white text-xl font-extrabold tracking-wide">Or try Search</div>
-            </div>
-            <div class="w-[133px] h-[39.90px] left-[160px] top-[49.40px] absolute">
-                <div class="w-[133px] h-[39.90px] left-0 top-0 absolute">
-                    <img src="<?php echo img_uri(); ?>svg/logo.svg" alt="logo" />
-                </div>
+
+            <div class="flex justify-end">
+                <nav>
+                    <ul class="flex flex-col items-end">
+                        <li>
+                            <a href="/" class="text-white text-[20px] lg:text-[35px] xl:text-[70px] font-semibold">Home</a>
+
+                            <div class="opacity-0 w-full h-[4px] bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 transition-all duration-500"></div>
+                        </li>
+
+                        <li>
+                            <a href="<?php page_uri('aboutUs') ?>" class="text-white text-[20px] lg:text-[35px] xl:text-[70px] font-semibold">About Us</a>
+                            <div class="opacity-0 w-full h-[4px] bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 transition-all duration-500"></div>
+                        </li>
+
+                        <li>
+                            <a href="<?php page_uri('services') ?>" class="text-white text-[20px] lg:text-[35px] xl:text-[70px] font-semibold">Services</a>
+                            <div class="opacity-0 w-full h-[4px] bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 transition-all duration-500"></div>
+                        </li>
+
+                        <li>
+                            <a href="<?php page_uri('blog/list') ?>" class="text-white text-[20px] lg:text-[35px] xl:text-[70px] font-semibold">Blog</a>
+                            <div class="opacity-0 w-full h-[4px] bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 transition-all duration-500"></div>
+                        </li>
+
+                        <?php $pass = false;
+                        foreach (esgi_get_partners() as $key => $value) {
+                            if ($value != false || $value !== "") {
+                                $pass = true;
+                            }
+                        }
+                        if ($pass) { ?>
+                        <li>
+                            <a href="<?php page_uri('partners') ?>" class="text-white text-[20px] lg:text-[35px] xl:text-[70px] font-semibold">Partners</a>
+                            <div class="opacity-0 w-full h-[4px] bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 transition-all duration-500"></div>
+                        </li>
+                        <?php } ?>
+
+                        <li>
+                            <a href="<?php page_uri('contacts') ?>" class="text-white text-[20px] lg:text-[35px] xl:text-[70px] font-semibold">Contacts</a>
+                            <div class="opacity-0 w-full h-[4px] bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 transition-all duration-500"></div>
+                        </li>
+                    </ul>
+                </nav>
             </div>
         </div>
-    </div>
-    <script>
-        const btnToggle = document.getElementById("btnToggle");
-        const btnToggleMenu = document.getElementById("btnToggleMenu");
-        const divSansMenu = document.getElementById("divSansMenu");
-        const divMenu = document.getElementById("divMenu");
+    </header>
 
-        const abt = document.getElementById("abt");
-        const ser = document.getElementById("ser");
-        const par = document.getElementById("par");
-        const blo = document.getElementById("blo");
-        const con = document.getElementById("con");
-        const hom = document.getElementById("hom");
+    <script>
+    const btnToggle = document.getElementById("btnToggle");
+    const btnToggleMenu = document.getElementById("btnToggleMenu");
+    const divSansMenu = document.getElementById("divSansMenu");
+    const divMenu = document.getElementById("divMenu");
     </script>
+
+    <style type="text/css">
+        li:hover div {
+            opacity: 1;
+        }
+    </style>

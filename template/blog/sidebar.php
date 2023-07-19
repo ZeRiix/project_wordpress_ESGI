@@ -1,98 +1,136 @@
-<div class="w-[502px] h-[1437px] relative">
-    <div class="w-[165px] h-[95px] left-[1px] top-[1342px] absolute">
-        <div class="w-[41px] h-[29px] left-[124px] top-[66px] absolute">
-            <div class="w-[41px] h-[29px] left-0 top-0 absolute bg-stone-50"></div>
-            <div class="left-[8px] top-[7px] absolute text-neutral-400 text-[13px] font-bold">App</div>
-        </div>
-        <div class="w-[59px] h-[29px] left-[55px] top-[66px] absolute">
-            <div class="w-[59px] h-[29px] left-0 top-0 absolute bg-stone-50"></div>
-            <div class="left-[7px] top-[7px] absolute text-neutral-400 text-[13px] font-bold">Twitter</div>
-        </div>
-        <div class="w-[45px] h-[29px] left-0 top-[66px] absolute">
-            <div class="w-[45px] h-[29px] left-0 top-0 absolute bg-stone-50"></div>
-            <div class="left-[8px] top-[7px] absolute text-neutral-400 text-[13px] font-bold">Web</div>
-        </div>
-        <div class="w-12 h-[25px] pr-0.5 left-0 top-0 absolute justify-center items-center inline-flex">
-            <div class="text-slate-900 text-xl font-bold">Tags</div>
+<?php
+$args = array(
+    'posts_per_page'      => 4,
+    'orderby'          => 'date',
+    'order'            => 'DESC',
+    'post_type'        => 'post',
+);
+
+$recent_posts = new WP_Query($args);
+?>
+
+<aside class="relative w-full lg:min-w-[370px] lg:max-w-[500px] pr-[20px] lg:pr-0 flex flex-col gap-[60px]">
+    <div class="relative">
+        <h3 class="mb-[30px] text-lg lg:text-xl text-slate-900">Search</h3>
+
+        <?php get_search_form(); ?>
+    </div>
+
+    <div class="relative">
+        <h3 class="mb-[30px] font-semibold text-lg lg:text-xl text-slate-900">Recent posts</h3>
+
+        <div class="flex flex-col gap-[30px]">
+            <?php
+            if ($recent_posts->have_posts()) {
+                while ($recent_posts->have_posts()) {
+                    $recent_posts->the_post();
+                    $post = get_post();
+            ?>
+
+            <article>
+                <a href="<?= get_permalink($post->ID) ?>" class="flex gap-[25px]">
+                    <div class="w-[88px] h-full flex-shrink-0">
+                        <?php
+                                $src = "https://via.placeholder.com/88x88";
+
+                                if (has_post_thumbnail($post->ID)) {
+                                    $src = get_the_post_thumbnail_url($post->ID);
+                                }
+                                ?>
+
+                        <img src="<?= $src ?>" class="w-full aspect-square" />
+                    </div>
+
+                    <div class="flex flex-col justify-between flex-1 content">
+                        <h4 class="mb-[10px] text-lg lg:text-xl text-zinc-500"><?= $post->post_title ?></h4>
+
+                        <time
+                            class="text-xs lg:text-sm text-zinc-500"><?= wp_date('j F Y', strtotime($post->post_date)) ?></time>
+                    </div>
+                </a>
+            </article>
+
+            <?php
+                }
+            }
+            ?>
         </div>
     </div>
-    <div class="w-[174px] h-[326px] left-0 top-[953px] absolute">
-        <div
-            class="w-[99px] h-[38px] pr-px left-[1px] top-[288px] absolute justify-center items-center gap-4 inline-flex">
-            <div class="text-zinc-500 text-xl font-normal leading-[38px]">Creative</div>
-        </div>
-        <div class="w-[77px] h-[38px] left-[1px] top-[229px] absolute justify-center items-center gap-4 inline-flex">
-            <div class="text-zinc-500 text-xl font-normal leading-[38px]">HTML</div>
-        </div>
-        <div class="w-40 h-[38px] left-[1px] top-[170px] absolute justify-center items-center gap-4 inline-flex">
-            <div class="text-zinc-500 text-xl font-normal leading-[38px]">Graphic design</div>
-        </div>
-        <div
-            class="w-[173px] h-[38px] pr-0.5 left-[1px] top-[111px] absolute justify-center items-center gap-4 inline-flex">
-            <div class="text-zinc-500 text-xl font-normal leading-[38px]">Web developing</div>
-        </div>
-        <div class="w-[127px] h-[38px] left-[1px] top-[52px] absolute justify-center items-center gap-4 inline-flex">
-            <div class="text-zinc-500 text-xl font-normal leading-[38px]">Advertising</div>
-        </div>
-        <div class="w-[103px] h-[25px] left-0 top-0 absolute justify-center items-center inline-flex">
-            <div class="text-slate-900 text-xl font-bold">Categories</div>
+
+    <div>
+        <h3 class="mb-[30px] font-semibold text-lg lg:text-xl text-slate-900">Categories</h3>
+
+        <ul class="flex flex-col gap-[20px] categories">
+            <?php
+            $categories = get_categories();
+
+            foreach ($categories as $category) {
+            ?>
+            <li class="flex items-center">
+                <a href="<?= get_current_uri() . '&category=' . $category->name ?>"
+                    class="flex gap-[10px] text-lg lg:text-xl text-zinc-500">
+                    <?= $category->name ?>
+                </a>
+            </li>
+            <?php
+            }
+            ?>
+        </ul>
+    </div>
+
+    <div>
+        <h3 class="mb-[30px] font-semibold text-lg lg:text-xl text-slate-900">Tags</h3>
+
+        <div class="flex flex-wrap gap-[15px]">
+            <?php
+            $tags = get_tags();
+
+            foreach ($tags as $tag) {
+            ?>
+            <a href="<?= get_current_uri() . '&tags=' . $tag->name ?>"
+                class="p-[5px] text-xs lg:text-sm text-zinc-500 font-medium bg-[#F8F8F8]">
+                <?= $tag->name ?>
+            </a>
+            <?php
+            }
+            ?>
         </div>
     </div>
-    <div class="w-[114px] h-[90px] left-[1px] top-[799px] absolute">
-        <div class="w-[114px] h-[38px] left-0 top-[52px] absolute justify-center items-center gap-4 inline-flex">
-            <div class="text-zinc-500 text-xl font-normal leading-[38px]">May 2022</div>
-        </div>
-        <div class="w-[83px] h-[25px] pr-px left-0 top-0 absolute justify-center items-center inline-flex">
-            <div class="text-slate-900 text-xl font-bold">Archives</div>
-        </div>
-    </div>
-    <div class="w-[501px] h-[554px] left-0 top-[174px] absolute">
-        <div class="w-[500px] h-[100px] left-[1px] top-[454px] absolute">
-            <div class="left-[116px] top-[84px] absolute text-zinc-400 text-[13px] font-normal">12 May, 2022</div>
-            <div class="w-[383px] left-[117px] top-0 absolute text-zinc-500 text-xl font-normal leading-[38px]">Mauris
-                venenatis fermentum pellentesque. </div>
-            <div class="w-[88px] h-[88px] left-0 top-[9px] absolute">
-                <img class="w-[88px] h-[88px] left-0 top-0 absolute" src="https://via.placeholder.com/88x88" />
-                <img class="w-[88px] h-[88px] left-0 top-0 absolute" src="https://via.placeholder.com/88x88" />
-            </div>
-        </div>
-        <div class="w-[500px] h-[100px] left-[1px] top-[321px] absolute">
-            <div class="left-[116px] top-[84px] absolute text-zinc-400 text-[13px] font-normal">12 May, 2022</div>
-            <div class="w-[383px] left-[117px] top-[-0px] absolute text-zinc-500 text-xl font-normal leading-[38px]">
-                Mauris venenatis fermentum pellentesque. </div>
-            <div class="w-[88px] h-[88px] left-0 top-[9px] absolute">
-                <img class="w-[88px] h-[88px] left-0 top-0 absolute" src="https://via.placeholder.com/88x88" />
-                <img class="w-[88px] h-[88px] left-0 top-0 absolute" src="https://via.placeholder.com/88x88" />
-            </div>
-        </div>
-        <div class="w-[500px] h-[100px] left-[1px] top-[188px] absolute">
-            <div class="left-[116px] top-[84px] absolute text-zinc-400 text-[13px] font-normal">12 May, 2022</div>
-            <div class="w-[383px] left-[117px] top-[-0px] absolute text-zinc-500 text-xl font-normal leading-[38px]">
-                Mauris venenatis fermentum pellentesque. </div>
-            <div class="w-[88px] h-[88px] left-0 top-[9px] absolute">
-                <img class="w-[88px] h-[88px] left-0 top-0 absolute" src="https://via.placeholder.com/88x88" />
-                <img class="w-[88px] h-[88px] left-0 top-0 absolute" src="https://via.placeholder.com/88x88" />
-            </div>
-        </div>
-        <div class="w-[498px] h-[104px] left-[1px] top-[52px] absolute">
-            <div class="left-[115px] top-[88px] absolute text-zinc-400 text-[13px] font-normal">12 May, 2022</div>
-            <div class="w-[383px] left-[115px] top-0 absolute text-zinc-500 text-xl font-normal leading-[38px]">Mauris
-                venenatis fermentum pellentesque. </div>
-            <div class="w-[88px] h-[88px] left-0 top-[13px] absolute">
-                <img class="w-[88px] h-[88px] left-0 top-0 absolute" src="https://via.placeholder.com/88x88" />
-                <img class="w-[88px] h-[88px] left-0 top-0 absolute" src="https://via.placeholder.com/88x88" />
-            </div>
-        </div>
-        <div class="w-[124px] h-[25px] pr-px left-0 top-0 absolute justify-center items-center inline-flex">
-            <div class="text-slate-900 text-xl font-bold">Recent posts</div>
-        </div>
-    </div>
-    <div class="w-[501px] h-[100px] left-[1px] top-0 absolute">
-        <img class="w-4 h-4 left-[485px] top-[67px] absolute" src="https://via.placeholder.com/16x16" />
-        <div class="left-[1px] top-[52px] absolute text-zinc-400 text-xl font-normal leading-[38px]">Type to search
-        </div>
-        <div class="pr-px left-0 top-0 absolute justify-center items-center inline-flex">
-            <div class="text-slate-900 text-xl font-bold">Search</div>
-        </div>
-    </div>
-</div>
+</aside>
+
+<style type="text/css">
+.searchform input[name="s"] {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    padding-bottom: 8px;
+    outline: none;
+    color: black;
+    border-bottom: 2px solid #4a5568;
+    background-color: transparent;
+}
+
+.searchform input[type="submit"] {
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+    /* hide text */
+    text-indent: -9999px;
+    z-index: 10;
+    /* add icon */
+    background-image: url('https://nas-mat.synology.me/hosted-img/icons/search-black.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 16px;
+    height: 16px;
+}
+
+ul.categories li::before {
+    content: "\2022";
+    color: pink;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+</style>

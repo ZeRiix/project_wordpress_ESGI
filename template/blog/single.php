@@ -1,191 +1,100 @@
+<?php
+if (isset($_GET['p'])) {
+    $post_blog = get_post_by_id($_GET['p']);
+    $reg = '/<img[^>]*src="([^"]+)"[^>]*\/>/';
+    preg_match_all($reg, $post_blog['content'], $matches);
+    $images = $matches[1];
+    add_comment($_GET['p'], $_POST['message'], $_POST['author']);
+    $comments = get_comments_by_post_id($_GET['p']);
+}
+?>
 <?php get_header(); ?>
-<div class="w-[100%] h-[2611px] relative">
-    <div class="w-[1053px] h-[427px] left-[553px] top-[2184px] absolute">
-        <div class="w-[1051px] h-[322px] left-[2px] top-[105px] absolute">
-            <div class="w-[76px] h-[25px] pr-px left-0 top-[297px] absolute justify-center items-center inline-flex">
-                <div class="text-slate-900 text-xl font-extrabold tracking-wide">Submit</div>
-            </div>
-            <div class="w-[1051px] h-[178px] left-0 top-[80px] absolute">
-                <div class="left-[10px] top-0 absolute text-zinc-400 text-xl font-normal leading-[38px]">Message
+
+<main class="max-w-[1920px] pt-[135px] mx-auto">
+    <section
+        class="ml-[30px] lg:ml-[50px] xl:ml-[150px] mb-[65px] xl:mb-[130px] flex flex-col gap-[32px] lg:gap-[65px] xl:gap-[130px]">
+        <h1 class="text-3xl lg:text-5xl xl:text-7xl font-semibold text-slate-900"><?= $post_blog["title"] . '.' ?></h1>
+
+        <div class="flex flex-col lg:flex-row gap-[50px]">
+            <?php include 'sidebar.php' ?>
+
+            <div id="content" class="flex flex-col gap-[32px] lg:gap-[65px] xl:gap-[130px]">
+                <article class="w-full max-[1050px] mx-auto grow-0 flex flex-col gap-[50px]">
+                    <div class="w-full h-[150px] lg:h-[300px] xl:h-[500px] pr-[20px]">
+                        <?php
+                        $src = "https://via.placeholder.com/1050x500";
+                        if (!empty($images[0])) {
+                            $src = $images[0];
+                        }
+                        ?>
+
+                        <img src="<?= $src ?>" class="w-full h-full object-cover" />
+                    </div>
+                    <span class="text-lg lg:text-xl text-slate-900 font-bold">
+                        <?php
+                        $categories = get_the_category(intval($_GET['p']));
+                        foreach ($categories as $category) {
+                            echo $category->name . " ";
+                        }
+                        ?>
+                        - <?= $post_blog['date'] ?></span>
+
+                    <?php
+                    $regex = '/<figure class="wp-block-image[^>]*><img[^>]*src="([^"]+)"[^>]*\/><\/figure>/';
+                    $content = preg_replace($regex, '', $post_blog['content']);
+                    echo $content;
+                    ?>
+                    <div class="flex flex-wrap gap-[15px]">
+                        <?php
+                        $tags = get_the_tags();
+
+                        foreach ($tags as $tag) {
+                        ?>
+                        <a href="<?= get_tag_link($tag->term_id) ?>"
+                            class="p-[5px] text-xs lg:text-sm text-zinc-500 font-medium bg-[#F8F8F8]">
+                            <?= $tag->name ?>
+                        </a>
+                        <?php
+                        }
+                        ?>
+                    </div>
+                </article>
+
+                <div id="comments" class="flex flex-col gap-[25px] pr-[20px]">
+                    <h1 class="font-semibold text-5xl lg:text-4xl">Comments (<?= count($comments) ?>)</h1>
+                    <?php foreach ($comments as $comment) {
+                        if (!empty($comment["author"]) && !empty($comment["content"])) { ?>
+                    <div class="flex flex-col items-start bg-[#F9F9F9] py-[30px] px-[40px] gap-[25px]">
+                        <h3 class="font-semibold text-3xl lg:text-2xl"><?= $comment["author"] ?></h3>
+                        <p class="text-lg lg:text-xl text-zinc-500"><?= $comment["content"] ?></p>
+                        <div class="flex items-center justify-center gap-[15px]">
+                            <img class="h-[14px] w-[16px]" src="<?php echo esgi_get_site_logo()['comment_reply']; ?>"
+                                alt="Reply">
+                            <a href="#comment-form" class="font-semibold text-lg lg:text-xl cursor-pointer">Reply</a>
+                        </div>
+                    </div>
+                    <?php }
+                    } ?>
                 </div>
-                <div class="w-[3px] h-[18px] left-0 top-[11px] absolute bg-slate-900"></div>
-            </div>
-            <div class="w-[1051px] h-12 left-0 top-0 absolute flex-col justify-center items-start gap-2 inline-flex">
-                <div class="text-zinc-400 text-xl font-normal leading-[38px]">Full name</div>
-            </div>
-        </div>
-        <div class="w-[238px] h-12 pr-px left-0 top-0 absolute justify-center items-center inline-flex">
-            <div class="text-slate-900 text-[38px] font-semibold">Leave a reply</div>
-        </div>
-    </div>
-    <div class="w-[1053px] h-[367px] left-[553px] top-[1678px] absolute">
-        <div class="w-[1050px] h-[252px] left-[3px] top-[115px] absolute">
-            <div class="w-[1050px] h-[252px] left-0 top-0 absolute bg-stone-50"></div>
-            <div
-                class="w-[91px] h-[25px] pr-px left-[38px] top-[195px] absolute justify-center items-center gap-[15px] inline-flex">
-                <div class="text-slate-900 text-xl font-extrabold tracking-wide">Reply</div>
-            </div>
-            <div
-                class="w-[970px] h-[75px] left-[40px] top-[91px] absolute text-zinc-500 text-xl font-normal leading-[38px]">
-                Sed sed nulla et mauris cursus rhoncus id id quam. Curabitur at varius ligula. Interdum et malesuada
-                fames ac ante ipsum primis in faucibus. Maecenas aliquet eros sed nibh finibus.</div>
-            <div
-                class="w-[137px] h-[34px] pr-[13px] left-[38px] top-[32px] absolute justify-start items-center inline-flex">
-                <div class="text-slate-900 text-[27px] font-bold">John Ford</div>
-            </div>
-        </div>
-        <div class="w-[231px] h-11 pr-px left-0 top-0 absolute justify-center items-center inline-flex">
-            <div class="text-slate-900 text-[35px] font-semibold">Comments (1)</div>
-        </div>
-    </div>
-    <div class="w-[1606px] h-[1538px] left-0 top-0 absolute">
-        <div class="w-[165px] h-[29px] left-[555px] top-[1509px] absolute">
-            <div class="w-[41px] h-[29px] left-[124px] top-0 absolute flex-col justify-start items-start inline-flex">
-                <div class="w-[41px] h-[29px] bg-stone-50"></div>
-                <div class="text-neutral-400 text-[13px] font-bold">App</div>
-            </div>
-            <div class="w-[59px] h-[29px] left-[55px] top-0 absolute flex-col justify-start items-start inline-flex">
-                <div class="w-[59px] h-[29px] bg-stone-50"></div>
-                <div class="text-neutral-400 text-[13px] font-bold">Twitter</div>
-            </div>
-            <div class="w-[45px] h-[29px] left-0 top-0 absolute flex-col justify-start items-start inline-flex">
-                <div class="w-[45px] h-[29px] bg-stone-50"></div>
-                <div class="text-neutral-400 text-[13px] font-bold">Web</div>
-            </div>
-        </div>
-        <div class="w-[1051px] left-[555px] top-[964px] absolute"><span
-                class="text-slate-900 text-xl font-normal leading-[38px]">Nunc sed imperdiet nisl, quis auctor nisi.
-                Phasellus at sollicitudin nisl. Proin luctus sem ut vulputate feugiat. Maecenas ac nisl velit. Donec
-                aliquet tincidunt risus ut faucibus. Donec sit amet metus vel velit consequat pulvinar. Donec
-                eleifend mi non mauris scelerisque, id gravida neque euismod. Fusce nulla nibh, dapibus sit amet
-                dolor at, dignissim laoreet tortor. Donec at justo turpis. Sed cursus mollis dui, eget euismod eros
-                auctor non.<br /></span><span
-                class="text-zinc-500 text-xl font-normal leading-[38px]"><br />Pellentesque habitant morbi tristique
-                senectus et netus et malesuada fames ac turpis egestas. Maecenas et ex enim. Sed sed nulla et mauris
-                cursus rhoncus id id quam. Curabitur at varius ligula. Interdum et malesuada fames ac ante ipsum
-                primis in faucibus. Maecenas aliquet eros sed nibh finibus, ut placerat est condimentum. Phasellus a
-                metus finibus mi sollicitudin vehicula quis sit amet odio. <br /><br />Nulla vel elit eget nulla
-                fringilla finibus. Nulla hendrerit, mauris non convallis lacinia, quam quam eleifend massa, id
-                fermentum magna tellus in augue. Vestibulum scelerisque mauris sed libero fermentum elementum. Nulla
-                vel elit eget nulla fringilla finibus. Nulla hendrerit, mauris non convallis lacinia, quam quam
-                eleifend massa.</span></div>
-        <div class="w-[303px] h-[25px] pr-px left-[555px] top-[894px] absolute justify-center items-center inline-flex">
-            <div class="text-slate-900 text-xl font-extrabold tracking-wide">Uncategorized - July 5, 2022</div>
-        </div>
-        <div class="w-[1050px] h-[500px] left-[556px] top-[339px] absolute">
-            <img class="w-[1050px] h-[500px] left-0 top-0 absolute" src="https://via.placeholder.com/1050x500" />
-            <img class="w-[1050px] h-[500px] left-0 top-0 absolute" src="https://via.placeholder.com/1050x500" />
-        </div>
-        <div class="w-[1329px] h-[201px] left-0 top-0 absolute justify-center items-center inline-flex">
-            <div class="w-[1329px] h-[201px] text-slate-900 text-[84px] font-semibold">Mauris venenatis fermentum
-                pellentesque. </div>
-        </div>
-    </div>
-    <div class="w-[502px] h-[1437px] left-[5px] top-[333px] absolute">
-        <div class="w-[165px] h-[95px] left-[1px] top-[1342px] absolute">
-            <div class="w-[41px] h-[29px] left-[124px] top-[66px] absolute">
-                <div class="w-[41px] h-[29px] left-0 top-0 absolute bg-stone-50"></div>
-                <div class="left-[8px] top-[7px] absolute text-neutral-400 text-[13px] font-bold">App</div>
-            </div>
-            <div class="w-[59px] h-[29px] left-[55px] top-[66px] absolute">
-                <div class="w-[59px] h-[29px] left-0 top-0 absolute bg-stone-50"></div>
-                <div class="left-[7px] top-[7px] absolute text-neutral-400 text-[13px] font-bold">Twitter</div>
-            </div>
-            <div class="w-[45px] h-[29px] left-0 top-[66px] absolute">
-                <div class="w-[45px] h-[29px] left-0 top-0 absolute bg-stone-50"></div>
-                <div class="left-[8px] top-[7px] absolute text-neutral-400 text-[13px] font-bold">Web</div>
-            </div>
-            <div class="w-12 h-[25px] pr-0.5 left-0 top-0 absolute justify-center items-center inline-flex">
-                <div class="text-slate-900 text-xl font-bold">Tags</div>
-            </div>
-        </div>
-        <div class="w-[174px] h-[326px] left-0 top-[953px] absolute">
-            <div
-                class="w-[99px] h-[38px] pr-px left-[1px] top-[288px] absolute justify-center items-center gap-4 inline-flex">
-                <div class="text-zinc-500 text-xl font-normal leading-[38px]">Creative</div>
-            </div>
-            <div
-                class="w-[77px] h-[38px] left-[1px] top-[229px] absolute justify-center items-center gap-4 inline-flex">
-                <div class="text-zinc-500 text-xl font-normal leading-[38px]">HTML</div>
-            </div>
-            <div class="w-40 h-[38px] left-[1px] top-[170px] absolute justify-center items-center gap-4 inline-flex">
-                <div class="text-zinc-500 text-xl font-normal leading-[38px]">Graphic design</div>
-            </div>
-            <div
-                class="w-[173px] h-[38px] pr-0.5 left-[1px] top-[111px] absolute justify-center items-center gap-4 inline-flex">
-                <div class="text-zinc-500 text-xl font-normal leading-[38px]">Web developing</div>
-            </div>
-            <div
-                class="w-[127px] h-[38px] left-[1px] top-[52px] absolute justify-center items-center gap-4 inline-flex">
-                <div class="text-zinc-500 text-xl font-normal leading-[38px]">Advertising</div>
-            </div>
-            <div class="w-[103px] h-[25px] left-0 top-0 absolute justify-center items-center inline-flex">
-                <div class="text-slate-900 text-xl font-bold">Categories</div>
-            </div>
-        </div>
-        <div class="w-[114px] h-[90px] left-[1px] top-[799px] absolute">
-            <div class="w-[114px] h-[38px] left-0 top-[52px] absolute justify-center items-center gap-4 inline-flex">
-                <div class="text-zinc-500 text-xl font-normal leading-[38px]">May 2022</div>
-            </div>
-            <div class="w-[83px] h-[25px] pr-px left-0 top-0 absolute justify-center items-center inline-flex">
-                <div class="text-slate-900 text-xl font-bold">Archives</div>
-            </div>
-        </div>
-        <div class="w-[501px] h-[554px] left-0 top-[174px] absolute">
-            <div class="w-[500px] h-[100px] left-[1px] top-[454px] absolute">
-                <div class="left-[116px] top-[84px] absolute text-zinc-400 text-[13px] font-normal">12 May, 2022
-                </div>
-                <div class="w-[383px] left-[117px] top-0 absolute text-zinc-500 text-xl font-normal leading-[38px]">
-                    Mauris venenatis fermentum pellentesque. </div>
-                <div class="w-[88px] h-[88px] left-0 top-[9px] absolute">
-                    <img class="w-[88px] h-[88px] left-0 top-0 absolute" src="https://via.placeholder.com/88x88" />
-                    <img class="w-[88px] h-[88px] left-0 top-0 absolute" src="https://via.placeholder.com/88x88" />
+
+                <div id="comment-form" class="pr-[20px]">
+                    <h1 class="text-5xl lg:text-4xl">Leave a reply</h1>
+                    <form class="mt-[45px] flex flex-col gap-[32px]" action="<?php echo get_current_uri() ?>"
+                        method="POST">
+                        <input type="text" name="author" placeholder="Full name"
+                            class="w-full h-[50px] border-b-[2px] px-[20px] py-[10px] text-lg lg:text-xl text-zinc-500 font-medium focus:outline-none">
+                        <label
+                            class="text-zinc-500 border-l-[3px] px-[8px]  text-lg lg:text-xl border-black text-zinc-500"
+                            for="message">Message</label>
+                        <textarea name="message"
+                            class="w-full h-[200px] border-b-[2px] px-[20px] py-[10px] text-lg lg:text-xl text-zinc-500 font-medium focus:outline-none"></textarea>
+                        <input type="submit" value="Submit"
+                            class="w-full text-left text-lg lg:text-xl font-semibold cursor-pointer">
+                    </form>
                 </div>
             </div>
-            <div class="w-[500px] h-[100px] left-[1px] top-[321px] absolute">
-                <div class="left-[116px] top-[84px] absolute text-zinc-400 text-[13px] font-normal">12 May, 2022
-                </div>
-                <div
-                    class="w-[383px] left-[117px] top-[-0px] absolute text-zinc-500 text-xl font-normal leading-[38px]">
-                    Mauris venenatis fermentum pellentesque. </div>
-                <div class="w-[88px] h-[88px] left-0 top-[9px] absolute">
-                    <img class="w-[88px] h-[88px] left-0 top-0 absolute" src="https://via.placeholder.com/88x88" />
-                    <img class="w-[88px] h-[88px] left-0 top-0 absolute" src="https://via.placeholder.com/88x88" />
-                </div>
-            </div>
-            <div class="w-[500px] h-[100px] left-[1px] top-[188px] absolute">
-                <div class="left-[116px] top-[84px] absolute text-zinc-400 text-[13px] font-normal">12 May, 2022
-                </div>
-                <div
-                    class="w-[383px] left-[117px] top-[-0px] absolute text-zinc-500 text-xl font-normal leading-[38px]">
-                    Mauris venenatis fermentum pellentesque. </div>
-                <div class="w-[88px] h-[88px] left-0 top-[9px] absolute">
-                    <img class="w-[88px] h-[88px] left-0 top-0 absolute" src="https://via.placeholder.com/88x88" />
-                    <img class="w-[88px] h-[88px] left-0 top-0 absolute" src="https://via.placeholder.com/88x88" />
-                </div>
-            </div>
-            <div class="w-[498px] h-[104px] left-[1px] top-[52px] absolute">
-                <div class="left-[115px] top-[88px] absolute text-zinc-400 text-[13px] font-normal">12 May, 2022
-                </div>
-                <div class="w-[383px] left-[115px] top-0 absolute text-zinc-500 text-xl font-normal leading-[38px]">
-                    Mauris venenatis fermentum pellentesque. </div>
-                <div class="w-[88px] h-[88px] left-0 top-[13px] absolute">
-                    <img class="w-[88px] h-[88px] left-0 top-0 absolute" src="https://via.placeholder.com/88x88" />
-                    <img class="w-[88px] h-[88px] left-0 top-0 absolute" src="https://via.placeholder.com/88x88" />
-                </div>
-            </div>
-            <div class="w-[124px] h-[25px] pr-px left-0 top-0 absolute justify-center items-center inline-flex">
-                <div class="text-slate-900 text-xl font-bold">Recent posts</div>
-            </div>
         </div>
-        <div class="w-[501px] h-[100px] left-[1px] top-0 absolute">
-            <img class="w-4 h-4 left-[485px] top-[67px] absolute" src="https://via.placeholder.com/16x16" />
-            <div class="left-[1px] top-[52px] absolute text-zinc-400 text-xl font-normal leading-[38px]">Type to
-                search</div>
-            <div class="pr-px left-0 top-0 absolute justify-center items-center inline-flex">
-                <div class="text-slate-900 text-xl font-bold">Search</div>
-            </div>
-        </div>
-    </div>
-</div>
+    </section>
+</main>
+
 <?php get_footer(); ?>

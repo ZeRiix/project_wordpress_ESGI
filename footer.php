@@ -1,42 +1,56 @@
-<div class="w-[100%] h-[397px] relative">
-    <div class="w-[100%] h-[397px] left-0 top-0 absolute bg-slate-900"></div>
-    <div class="pr-[303px] left-[159px] top-[296px] absolute justify-start items-center inline-flex">
-        <div class="text-white text-[15px] font-normal">2022 Figma Template by ESGI</div>
-    </div>
-    <div class="w-[70.31px] h-5 right-[100px] top-[297px] absolute">
-        <img class="w-5 h-5 left-[-0px] top-0 absolute" src="<?php echo img_uri(); ?>svg/facebook.svg" />
-    </div>
-    <div class="w-[70.31px] h-5 right-[160px] top-[297px] absolute">
-        <img class="w-5 h-5 left-[-0px] top-0 absolute" src="<?php echo img_uri(); ?>svg/linkedin.svg" />
-    </div>
-    <div class="w-[183px] h-[137px] right-[400px] top-[90px] absolute">
-        <div class="left-[97px] top-[7px] absolute text-white text-xl font-bold">Manager</div>
-        <div class="left-[12px] top-[59px] absolute text-white text-xl font-normal leading-[38px]">+33 1 53 31 25 23
+    <footer
+        class="w-[100%] min-h-[380px] p-[30px] lg:p-[50px] xl:px-[150px] xl:py-[75px] flex flex-col justify-between gap-[30px] lg:gap-0 bg-slate-900">
+        <div class="flex flex-col lg:flex-row justify-between gap-[30px] lg:gap-0">
+            <a href="/" class="w-[115px] lg:w-[230px] h-[35px] lg:h-[70px]">
+                <img src="<?php echo esgi_get_site_logo()['logo_white']; ?>" alt="logo" class="w-full h-full" />
+            </a>
+
+            <div class="flex flex-col lg:flex-row gap-[30px] lg:gap-[95px] text-white">
+                <div class="flex flex-col gap-[5px]">
+                    <h5 class="mb-[20px] font-semibold">Manager</h5>
+
+                    <span><?php echo esgi_get_services()['manager']['phone']; ?></span>
+
+                    <span><?php echo esgi_get_services()['manager']['email']; ?></span>
+                </div>
+                <div class="flex flex-col gap-[5px]">
+                    <h5 class="mb-[20px] font-semibold">CEO</h5>
+
+                    <span><?php echo esgi_get_services()['ceo']['phone']; ?></span>
+
+                    <span><?php echo esgi_get_services()['ceo']['email']; ?></span>
+                </div>
+            </div>
         </div>
-        <div class="left-[47px] top-[99px] absolute text-white text-xl font-normal leading-[38px]">info@esgi.com</div>
-    </div>
-    <div class="w-[183px] h-[137px] right-[50px] top-[90px] absolute">
-        <div class="left-[141px] top-[7px] absolute text-white text-xl font-bold">CEO</div>
-        <div class="left-[13px] top-[59px] absolute text-white text-xl font-normal leading-[38px]">+33 1 53 31 25 25
+
+        <div class="flex justify-between gap-[30px]">
+            <div class="mt-[30px] text-white text-[15px] font-normal">&copy;<?= date("Y") ?> Figma Template by ESGI
+            </div>
+
+            <div class="flex gap-[30px] mt-[30px]">
+                <a href="<?php echo esgi_get_social_networks()['linkedin']['url'] ?>" target="_blank">
+                    <img src="<?php echo img_uri(); ?>svg/linkedin.svg" alt="linkedin" class="w-[21px] h-[21px]" />
+                </a>
+
+                <a href="<?php echo esgi_get_social_networks()['facebook']['url'] ?>" target="_blank">
+                    <img src="<?php echo img_uri(); ?>svg/facebook.svg" alt="facebook" class="w-[21px] h-[21px]" />
+                </a>
+            </div>
         </div>
-        <div class="left-[5px] top-[99px] absolute text-white text-xl font-normal leading-[38px]">ceo@company.com</div>
-    </div>
-    <div class="w-[233.33px] h-[70px] left-[154px] top-[75px] absolute">
-        <div class="w-[233.33px] h-[70px] left-0 top-0 absolute"></div>
-    </div>
-</div>
-<script>
+    </footer>
+
+    <script>
 btnToggle.addEventListener("click", () => {
-    divSansMenu.classList.add("hidden");
-    divMenu.classList.remove("hidden");
+    divMenu.style.top = "0";
+
 });
 
 btnToggleMenu.addEventListener("click", () => {
-    divMenu.classList.add("hidden");
-    divSansMenu.classList.remove("hidden");
+    divMenu.style.top = "-950px";
 });
-</script>
-<?php wp_footer(); ?>
-</body>
+    </script>
 
-</html>
+    <?php wp_footer(); ?>
+    </body>
+
+    </html>

@@ -1,248 +1,155 @@
 <?php get_header(); ?>
-<div class="w-[100%] h-[2259px] relative">
-    <div class="w-[1053px] h-[2026px] left-[552px] top-[233px] absolute">
-        <div class="w-[394px] h-10 left-[2px] top-[1986px] absolute">
-            <div class="left-[374px] top-[3px] absolute text-slate-900 text-base font-normal leading-[34px]">11
-            </div>
-            <div class="left-[314px] top-[3px] absolute text-slate-900 text-base font-normal leading-[34px]">10
-            </div>
-            <div class="left-[263px] top-[3px] absolute text-slate-900 text-base font-normal leading-[34px]">…</div>
-            <div class="left-[213px] top-[3px] absolute text-slate-900 text-base font-normal leading-[34px]">5</div>
-            <div class="left-[164px] top-[3px] absolute text-slate-900 text-base font-normal leading-[34px]">4</div>
-            <div class="left-[114px] top-[3px] absolute text-slate-900 text-base font-normal leading-[34px]">3</div>
-            <div class="left-[65px] top-[3px] absolute text-slate-900 text-base font-normal leading-[34px]">2</div>
-            <div class="w-10 h-10 left-0 top-0 absolute bg-slate-900"></div>
-            <div class="left-[15px] top-[3px] absolute text-white text-base font-normal leading-[34px]">1</div>
-        </div>
-        <div class="w-[503px] h-[593px] left-[550px] top-[1324px] absolute">
-            <div
-                class="w-[500px] h-[114px] left-[2px] top-[479px] absolute text-zinc-500 text-xl font-normal leading-[38px]">
-                Nullam eget leo in libero malesuada dapibus in at felis. Pellentesque habitant morbi tristique
-                senectus et netus et malesuada fames ac turpis egestas.</div>
-            <div class="w-[502px] h-24 pt-[5px] left-0 top-[363px] absolute justify-center items-center inline-flex">
-                <div class="w-[502px] h-24 text-slate-900 text-[35px] font-semibold">Mauris venenatis fermentum
-                    pellentesque. </div>
-            </div>
-            <div class="w-[501px] h-[333px] left-[2px] top-0 absolute">
-                <img class="w-[500px] h-[333px] left-[0.33px] top-0 absolute"
-                    src="https://via.placeholder.com/500x333" />
-                <img class="w-[500px] h-[333px] left-[0.33px] top-0 absolute"
-                    src="https://via.placeholder.com/500x333" />
-            </div>
-            <div
-                class="w-[155px] h-[25px] pr-px left-[21px] top-[15px] absolute justify-center items-center inline-flex">
-                <div class="text-white text-xl font-extrabold tracking-wide">Uncategorized</div>
-            </div>
-        </div>
-        <div class="w-[503px] h-[593px] left-0 top-[1324px] absolute">
-            <div
-                class="w-[500px] h-[114px] left-[2px] top-[479px] absolute text-zinc-500 text-xl font-normal leading-[38px]">
-                Nullam eget leo in libero malesuada dapibus in at felis. Pellentesque habitant morbi tristique
-                senectus et netus et malesuada fames ac turpis egestas.</div>
-            <div class="w-[502px] h-24 pt-[5px] left-0 top-[363px] absolute justify-center items-center inline-flex">
-                <div class="w-[502px] h-24 text-slate-900 text-[35px] font-semibold">Mauris venenatis fermentum
-                    pellentesque. </div>
-            </div>
-            <div class="w-[501px] h-[333px] left-[2px] top-0 absolute">
-                <img class="w-[500px] h-[333px] left-[0.33px] top-0 absolute"
-                    src="https://via.placeholder.com/500x333" />
-                <img class="w-[500px] h-[333px] left-[0.33px] top-0 absolute"
-                    src="https://via.placeholder.com/500x333" />
-            </div>
-            <div
-                class="w-[155px] h-[25px] pr-px left-[21px] top-[15px] absolute justify-center items-center inline-flex">
-                <div class="text-white text-xl font-extrabold tracking-wide">Uncategorized</div>
-            </div>
-        </div>
-        <div class="w-[503px] h-[593px] left-[550px] top-[662px] absolute">
-            <div
-                class="w-[500px] h-[114px] left-[2px] top-[479px] absolute text-zinc-500 text-xl font-normal leading-[38px]">
-                Nullam eget leo in libero malesuada dapibus in at felis. Pellentesque habitant morbi tristique
-                senectus et netus et malesuada fames ac turpis egestas.</div>
-            <div class="w-[502px] h-24 pt-[5px] left-0 top-[363px] absolute justify-center items-center inline-flex">
-                <div class="w-[502px] h-24 text-slate-900 text-[35px] font-semibold">Mauris venenatis fermentum
-                    pellentesque. </div>
-            </div>
-            <div class="w-[501px] h-[333px] left-[2px] top-0 absolute">
-                <img class="w-[500px] h-[333px] left-[0.33px] top-0 absolute"
-                    src="https://via.placeholder.com/500x333" />
-                <img class="w-[500px] h-[333px] left-[0.33px] top-0 absolute"
-                    src="https://via.placeholder.com/500x333" />
-            </div>
-            <div
-                class="w-[155px] h-[25px] pr-px left-[21px] top-[15px] absolute justify-center items-center inline-flex">
-                <div class="text-white text-xl font-extrabold tracking-wide">Uncategorized</div>
-            </div>
-        </div>
-        <div class="w-[503px] h-[593px] left-0 top-[662px] absolute">
-            <div
-                class="w-[500px] h-[114px] left-[2px] top-[479px] absolute text-zinc-500 text-xl font-normal leading-[38px]">
-                Nullam eget leo in libero malesuada dapibus in at felis. Pellentesque habitant morbi tristique
-                senectus et netus et malesuada fames ac turpis egestas.</div>
-            <div class="w-[502px] h-24 pt-[5px] left-0 top-[363px] absolute justify-center items-center inline-flex">
-                <div class="w-[502px] h-24 text-slate-900 text-[35px] font-semibold">Mauris venenatis fermentum
-                    pellentesque. </div>
-            </div>
-            <div class="w-[501px] h-[333px] left-[2px] top-0 absolute">
-                <img class="w-[500px] h-[333px] left-[0.33px] top-0 absolute"
-                    src="https://via.placeholder.com/500x333" />
-                <img class="w-[500px] h-[333px] left-[0.33px] top-0 absolute"
-                    src="https://via.placeholder.com/500x333" />
-            </div>
-            <div
-                class="w-[155px] h-[25px] pr-px left-[21px] top-[15px] absolute justify-center items-center inline-flex">
-                <div class="text-white text-xl font-extrabold tracking-wide">Uncategorized</div>
-            </div>
-        </div>
-        <div class="w-[503px] h-[593px] left-[550px] top-0 absolute">
-            <div
-                class="w-[500px] h-[114px] left-[2px] top-[479px] absolute text-zinc-500 text-xl font-normal leading-[38px]">
-                Nullam eget leo in libero malesuada dapibus in at felis. Pellentesque habitant morbi tristique
-                senectus et netus et malesuada fames ac turpis egestas.</div>
-            <div class="w-[502px] h-24 pt-[5px] left-0 top-[363px] absolute justify-center items-center inline-flex">
-                <div class="w-[502px] h-24 text-slate-900 text-[35px] font-semibold">Mauris venenatis fermentum
-                    pellentesque. </div>
-            </div>
-            <div class="w-[501px] h-[333px] left-[2px] top-0 absolute">
-                <img class="w-[500px] h-[333px] left-[0.33px] top-0 absolute"
-                    src="https://via.placeholder.com/500x333" />
-                <img class="w-[500px] h-[333px] left-[0.33px] top-0 absolute"
-                    src="https://via.placeholder.com/500x333" />
-            </div>
-            <div
-                class="w-[155px] h-[25px] pr-px left-[21px] top-[15px] absolute justify-center items-center inline-flex">
-                <div class="text-white text-xl font-extrabold tracking-wide">Uncategorized</div>
-            </div>
-        </div>
-        <div class="w-[503px] h-[593px] left-0 top-0 absolute">
-            <div
-                class="w-[500px] h-[114px] left-[2px] top-[479px] absolute text-zinc-500 text-xl font-normal leading-[38px]">
-                Nullam eget leo in libero malesuada dapibus in at felis. Pellentesque habitant morbi tristique
-                senectus et netus et malesuada fames ac turpis egestas.</div>
-            <div class="w-[502px] h-24 pt-[5px] left-0 top-[363px] absolute justify-center items-center inline-flex">
-                <div class="w-[502px] h-24 text-slate-900 text-[35px] font-semibold">Mauris venenatis fermentum
-                    pellentesque. </div>
-            </div>
-            <div class="w-[501px] h-[333px] left-[2px] top-0 absolute">
-                <img class="w-[500px] h-[333px] left-[0.33px] top-0 absolute"
-                    src="https://via.placeholder.com/500x333" />
-                <img class="w-[500px] h-[333px] left-[0.33px] top-0 absolute"
-                    src="https://via.placeholder.com/500x333" />
-            </div>
-            <div
-                class="w-[155px] h-[25px] pr-px left-[21px] top-[15px] absolute justify-center items-center inline-flex">
-                <div class="text-white text-xl font-extrabold tracking-wide">Uncategorized</div>
-            </div>
-        </div>
-    </div>
-    <div class="w-[199px] h-[105px] pr-0.5 left-0 top-0 absolute justify-start items-center inline-flex">
-        <div class="text-slate-900 text-[84px] font-semibold">Blog.</div>
-    </div>
-    <div class="w-[502px] h-[1437px] left-[3px] top-[233px] absolute">
-        <div class="w-[165px] h-[95px] left-[1px] top-[1342px] absolute">
-            <div class="w-[41px] h-[29px] left-[124px] top-[66px] absolute">
-                <div class="w-[41px] h-[29px] left-0 top-0 absolute bg-stone-50"></div>
-                <div class="left-[8px] top-[7px] absolute text-neutral-400 text-[13px] font-bold">App</div>
-            </div>
-            <div class="w-[59px] h-[29px] left-[55px] top-[66px] absolute">
-                <div class="w-[59px] h-[29px] left-0 top-0 absolute bg-stone-50"></div>
-                <div class="left-[7px] top-[7px] absolute text-neutral-400 text-[13px] font-bold">Twitter</div>
-            </div>
-            <div class="w-[45px] h-[29px] left-0 top-[66px] absolute">
-                <div class="w-[45px] h-[29px] left-0 top-0 absolute bg-stone-50"></div>
-                <div class="left-[8px] top-[7px] absolute text-neutral-400 text-[13px] font-bold">Web</div>
-            </div>
-            <div class="w-12 h-[25px] pr-0.5 left-0 top-0 absolute justify-center items-center inline-flex">
-                <div class="text-slate-900 text-xl font-bold">Tags</div>
-            </div>
-        </div>
-        <div class="w-[174px] h-[326px] left-0 top-[953px] absolute">
-            <div
-                class="w-[99px] h-[38px] pr-px left-[1px] top-[288px] absolute justify-center items-center gap-4 inline-flex">
-                <div class="text-zinc-500 text-xl font-normal leading-[38px]">Creative</div>
-            </div>
-            <div
-                class="w-[77px] h-[38px] left-[1px] top-[229px] absolute justify-center items-center gap-4 inline-flex">
-                <div class="text-zinc-500 text-xl font-normal leading-[38px]">HTML</div>
-            </div>
-            <div class="w-40 h-[38px] left-[1px] top-[170px] absolute justify-center items-center gap-4 inline-flex">
-                <div class="text-zinc-500 text-xl font-normal leading-[38px]">Graphic design</div>
-            </div>
-            <div
-                class="w-[173px] h-[38px] pr-0.5 left-[1px] top-[111px] absolute justify-center items-center gap-4 inline-flex">
-                <div class="text-zinc-500 text-xl font-normal leading-[38px]">Web developing</div>
-            </div>
-            <div
-                class="w-[127px] h-[38px] left-[1px] top-[52px] absolute justify-center items-center gap-4 inline-flex">
-                <div class="text-zinc-500 text-xl font-normal leading-[38px]">Advertising</div>
-            </div>
-            <div class="w-[103px] h-[25px] left-0 top-0 absolute justify-center items-center inline-flex">
-                <div class="text-slate-900 text-xl font-bold">Categories</div>
-            </div>
-        </div>
-        <div class="w-[114px] h-[90px] left-[1px] top-[799px] absolute">
-            <div class="w-[114px] h-[38px] left-0 top-[52px] absolute justify-center items-center gap-4 inline-flex">
-                <div class="text-zinc-500 text-xl font-normal leading-[38px]">May 2022</div>
-            </div>
-            <div class="w-[83px] h-[25px] pr-px left-0 top-0 absolute justify-center items-center inline-flex">
-                <div class="text-slate-900 text-xl font-bold">Archives</div>
-            </div>
-        </div>
-        <div class="w-[501px] h-[554px] left-0 top-[174px] absolute">
-            <div class="w-[500px] h-[100px] left-[1px] top-[454px] absolute">
-                <div class="left-[116px] top-[84px] absolute text-zinc-400 text-[13px] font-normal">12 May, 2022
-                </div>
-                <div class="w-[383px] left-[117px] top-0 absolute text-zinc-500 text-xl font-normal leading-[38px]">
-                    Mauris venenatis fermentum pellentesque. </div>
-                <div class="w-[88px] h-[88px] left-0 top-[9px] absolute">
-                    <img class="w-[88px] h-[88px] left-0 top-0 absolute" src="https://via.placeholder.com/88x88" />
-                    <img class="w-[88px] h-[88px] left-0 top-0 absolute" src="https://via.placeholder.com/88x88" />
+
+<?php
+if ($_GET['category']) {
+    $args = array(
+        'posts_per_page'      => 6,
+        'paged' => get_query_var('paged') ? get_query_var('paged') : 1,
+        'category_name' => $_GET['category'],
+    );
+} else if ($_GET['tags']) {
+    $args = array(
+        'posts_per_page'      => 6,
+        'paged' => get_query_var('paged') ? get_query_var('paged') : 1,
+        'tag' => $_GET['tags'],
+    );
+} else {
+    $args = array(
+        'posts_per_page'      => 6,
+        'paged' => get_query_var('paged') ? get_query_var('paged') : 1,
+    );
+}
+
+$posts_query = new WP_Query($args);
+?>
+
+<main class="max-w-[1920px] pt-[135px] mx-auto">
+    <section
+        class="ml-[30px] lg:ml-[50px] xl:ml-[150px] mb-[65px] xl:mb-[130px] flex flex-col gap-[32px] lg:gap-[65px] xl:gap-[130px]">
+        <h1 class="text-3xl lg:text-5xl xl:text-7xl font-semibold text-slate-900">Blog.</h1>
+
+        <div class="flex flex-col lg:flex-row gap-[50px]">
+            <?php include 'sidebar.php' ?>
+
+            <div class="articles">
+                <div class="pr-[20px] flex flex-col gap-[30px]">
+                    <div
+                        class="grow-0 grid grid-rows-6 sm:grid-rows-3 grid-cols-[repeat(1,minmax(0,500px))] sm:grid-cols-[repeat(2,minmax(0,500px))] gap-[50px]">
+                        <?php
+                        if ($posts_query->have_posts()) {
+                            while ($posts_query->have_posts()) {
+                                $posts_query->the_post();
+                                $post = get_post();
+                                $content = get_the_content($post->ID);
+                                $reg = '/<img[^>]*src="([^"]+)"[^>]*\/>/';
+                                preg_match_all($reg, $content, $matches);
+                                $images = $matches[1];
+                                $regex = '/<figure class="wp-block-image[^>]*><img[^>]*src="([^"]+)"[^>]*\/><\/figure>/';
+                                $content = preg_replace($regex, '', $content);
+                                if (strlen($content) > 200) {
+                                    $content = substr($content, 0, 200) . '...';
+                                }
+                        ?>
+
+                        <article>
+                            <a href="<?= get_permalink($post->ID) ?>" class="flex flex-col gap-[35px]">
+                                <div class="relative h-[170px] lg:h-[250px] xl:h-[330px]">
+                                    <?php
+                                            $categories = get_the_category($post->ID);
+
+                                            $src = "https://via.placeholder.com/500x330";
+
+                                            if (!empty($images[0])) {
+                                                $src = $images[0];
+                                            }
+                                            ?>
+
+                                    <div
+                                        class="absolute top-[15px] left-[15px] w-2/3 flex flex-wrap gap-[5px] text-white px-[10px] py-[5px] text-xs lg:text-base">
+                                        <?php foreach ($categories as $category) { ?>
+                                        <span class="text-base lg:text-xl text-white">
+                                            <?php
+                                                        if (count($categories) > 1 && $category !== end($categories)) {
+                                                            echo $category->name . ',';
+                                                        } else {
+                                                            echo $category->name;
+                                                        }
+                                                        ?>
+                                        </span>
+                                        <?php } ?>
+                                    </div>
+
+                                    <img src="<?= $src ?>" class="w-full h-full object-cover bg-center" />
+                                </div>
+
+                                <div class="flex flex-col gap-[15px]">
+                                    <h3 class="wfull mb-[30px] text-xl lg:text-2xl lg:text-4xl text-slate-900 truncate">
+                                        <?= $post->post_title ?></h3>
+
+                                    <div class="text-base lg:text-xl text-zinc-500 description">
+                                        <?= $content ?>
+                                    </div>
+
+                                </div>
+                            </a>
+                        </article>
+
+                        <?php
+                            }
+                        }
+                        ?>
+                    </div>
+
+                    <div class="pagination">
+                        <?php
+                        $pagination_args = array(
+                            'mid_size' => 4,
+                            'prev_text' => '<',
+                            'next_text' => '>',
+                            'total' => $posts_query->max_num_pages,
+                            'type' => 'array'
+                        );
+
+                        $pagination_links = paginate_links($pagination_args);
+
+                        if ($pagination_links) {
+                            echo '<div class="mt-[30px] flex pagination">';
+
+                            foreach ($pagination_links as $link) {
+                                $link = str_replace('page-numbers', 'page-numbers ajax-link', $link);
+                                echo $link;
+                            }
+                            echo '</div>';
+                        }
+                        ?>
+                    </div>
                 </div>
             </div>
-            <div class="w-[500px] h-[100px] left-[1px] top-[321px] absolute">
-                <div class="left-[116px] top-[84px] absolute text-zinc-400 text-[13px] font-normal">12 May, 2022
-                </div>
-                <div
-                    class="w-[383px] left-[117px] top-[-0px] absolute text-zinc-500 text-xl font-normal leading-[38px]">
-                    Mauris venenatis fermentum pellentesque. </div>
-                <div class="w-[88px] h-[88px] left-0 top-[9px] absolute">
-                    <img class="w-[88px] h-[88px] left-0 top-0 absolute" src="https://via.placeholder.com/88x88" />
-                    <img class="w-[88px] h-[88px] left-0 top-0 absolute" src="https://via.placeholder.com/88x88" />
-                </div>
-            </div>
-            <div class="w-[500px] h-[100px] left-[1px] top-[188px] absolute">
-                <div class="left-[116px] top-[84px] absolute text-zinc-400 text-[13px] font-normal">12 May, 2022
-                </div>
-                <div
-                    class="w-[383px] left-[117px] top-[-0px] absolute text-zinc-500 text-xl font-normal leading-[38px]">
-                    Mauris venenatis fermentum pellentesque. </div>
-                <div class="w-[88px] h-[88px] left-0 top-[9px] absolute">
-                    <img class="w-[88px] h-[88px] left-0 top-0 absolute" src="https://via.placeholder.com/88x88" />
-                    <img class="w-[88px] h-[88px] left-0 top-0 absolute" src="https://via.placeholder.com/88x88" />
-                </div>
-            </div>
-            <div class="w-[498px] h-[104px] left-[1px] top-[52px] absolute">
-                <div class="left-[115px] top-[88px] absolute text-zinc-400 text-[13px] font-normal">12 May, 2022
-                </div>
-                <div class="w-[383px] left-[115px] top-0 absolute text-zinc-500 text-xl font-normal leading-[38px]">
-                    Mauris venenatis fermentum pellentesque. </div>
-                <div class="w-[88px] h-[88px] left-0 top-[13px] absolute">
-                    <img class="w-[88px] h-[88px] left-0 top-0 absolute" src="https://via.placeholder.com/88x88" />
-                    <img class="w-[88px] h-[88px] left-0 top-0 absolute" src="https://via.placeholder.com/88x88" />
-                </div>
-            </div>
-            <div class="w-[124px] h-[25px] pr-px left-0 top-0 absolute justify-center items-center inline-flex">
-                <div class="text-slate-900 text-xl font-bold">Recent posts</div>
-            </div>
         </div>
-        <div class="w-[501px] h-[100px] left-[1px] top-0 absolute">
-            <img class="w-4 h-4 left-[485px] top-[67px] absolute" src="https://via.placeholder.com/16x16" />
-            <div class="left-[1px] top-[52px] absolute text-zinc-400 text-xl font-normal leading-[38px]">Type to
-                search</div>
-            <div class="pr-px left-0 top-0 absolute justify-center items-center inline-flex">
-                <div class="text-slate-900 text-xl font-bold">Search</div>
-            </div>
-        </div>
-    </div>
-</div>
+    </section>
+</main>
+
+<style type="text/css">
+.description p {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.page-numbers {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(15, 23, 42);
+}
+
+.page-numbers.current {
+    color: white;
+    background-color: rgb(15, 23, 42);
+}
+</style>
+
 <?php get_footer(); ?>
