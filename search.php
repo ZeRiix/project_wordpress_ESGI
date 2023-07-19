@@ -17,70 +17,68 @@ if (isset($_GET['s'])) {
             </div>
         </h1>
 
+        <?php if(!is_array($posts)) { ?>
+        <p class="text-lg lg:text-xl text-zinc-500"><?= $posts ?></p>
+        <?php } ?>
+
         <div class="grid grid-rows-6 grid-cols-1 lg:grid-cols-3 lg:grid-rows-2 gap-[50px]">
-            <article class="flex flex-col gap-[20px]">
-                <h4 class="mb-[10px] text-lg lg:text-xl xl:text-3xl text-slate-900">Suspendisse aliquet efficitur
-                    porttitor. In ornare varius.</h4>
+            <?php if(is_array($posts)) {
+                foreach ($posts as $post) {
+            ?>
+            <a href="<?= $post['permalink'] ?>">
+                <article class="flex flex-col gap-[20px]">
+                    <h4 class="mb-[10px] text-lg lg:text-xl xl:text-3xl text-slate-900"><?= $post['title'] ?></h4>
 
-                <span class="text-lg lg:text-xl text-slate-900 font-bold">Uncategorized, July 5, 2022</span>
+                    <span class="text-lg lg:text-xl text-slate-900 font-bold"><?= $post['category'][0] ?>, <?= wp_date('j F Y', strtotime($post->post_date)) ?></span>
 
-                <p class="text-lg lg:text-xl text-zinc-500">Nulla hendrerit, mauris non convallis lacinia, quam quam
-                    eleifend massa, id fermentum magna tellus in augue. Vestibulum scelerisque mauris.</p>
-            </article>
+                    <p class="text-lg lg:text-xl text-zinc-500 description">
+                        <?= $post['content'] ?>
+                    </p>
+                </article>
+            </a>
+            <?php } 
+            } else {
+                $posts = new WP_Query(
+                    array(
+                        'posts_per_page'      => 6,
+                        'orderby'          => 'date',
+                        'order'            => 'DESC',
+                        'post_type'        => 'post',
+                    )
+                );
 
-            <article class="flex flex-col gap-[20px]">
-                <h4 class="mb-[10px] text-lg lg:text-xl xl:text-3xl text-slate-900">Suspendisse aliquet efficitur
-                    porttitor. In ornare varius.</h4>
+                if($posts->have_posts()){
+                    while($posts->have_posts()){
+                        $posts->the_post();
+                        $post = get_post();
+            ?>
+            <a href="<?= get_permalink($post->ID) ?>">
+                <article class="flex flex-col gap-[20px]">
+                    <h4 class="mb-[10px] text-lg lg:text-xl xl:text-3xl text-slate-900"><?= $post->post_title ?></h4>
 
-                <span class="text-lg lg:text-xl text-slate-900 font-bold">Uncategorized, July 5, 2022</span>
+                    <span class="text-lg lg:text-xl text-slate-900 font-bold"><?= get_the_category($post->ID) ?>, <?= wp_date('j F Y', strtotime($post->post_date)) ?></span>
 
-                <p class="text-lg lg:text-xl text-zinc-500">Nulla hendrerit, mauris non convallis lacinia, quam quam
-                    eleifend massa, id fermentum magna tellus in augue. Vestibulum scelerisque mauris.</p>
-            </article>
-
-            <article class="flex flex-col gap-[20px]">
-                <h4 class="mb-[10px] text-lg lg:text-xl xl:text-3xl text-slate-900">Suspendisse aliquet efficitur
-                    porttitor. In ornare varius.</h4>
-
-                <span class="text-lg lg:text-xl text-slate-900 font-bold">Uncategorized, July 5, 2022</span>
-
-                <p class="text-lg lg:text-xl text-zinc-500">Nulla hendrerit, mauris non convallis lacinia, quam quam
-                    eleifend massa, id fermentum magna tellus in augue. Vestibulum scelerisque mauris.</p>
-            </article>
-
-            <article class="flex flex-col gap-[20px]">
-                <h4 class="mb-[10px] text-lg lg:text-xl xl:text-3xl text-slate-900">Suspendisse aliquet efficitur
-                    porttitor. In ornare varius.</h4>
-
-                <span class="text-lg lg:text-xl text-slate-900 font-bold">Uncategorized, July 5, 2022</span>
-
-                <p class="text-lg lg:text-xl text-zinc-500">Nulla hendrerit, mauris non convallis lacinia, quam quam
-                    eleifend massa, id fermentum magna tellus in augue. Vestibulum scelerisque mauris.</p>
-            </article>
-
-            <article class="flex flex-col gap-[20px]">
-                <h4 class="mb-[10px] text-lg lg:text-xl xl:text-3xl text-slate-900">Suspendisse aliquet efficitur
-                    porttitor. In ornare varius.</h4>
-
-                <span class="text-lg lg:text-xl text-slate-900 font-bold">Uncategorized, July 5, 2022</span>
-
-                <p class="text-lg lg:text-xl text-zinc-500">Nulla hendrerit, mauris non convallis lacinia, quam quam
-                    eleifend massa, id fermentum magna tellus in augue. Vestibulum scelerisque mauris.</p>
-            </article>
-
-            <article class="flex flex-col gap-[20px]">
-                <h4 class="mb-[10px] text-lg lg:text-xl xl:text-3xl text-slate-900">Suspendisse aliquet efficitur
-                    porttitor. In ornare varius.</h4>
-
-                <span class="text-lg lg:text-xl text-slate-900 font-bold">Uncategorized, July 5, 2022</span>
-
-                <p class="text-lg lg:text-xl text-zinc-500">Nulla hendrerit, mauris non convallis lacinia, quam quam
-                    eleifend massa, id fermentum magna tellus in augue. Vestibulum scelerisque mauris.</p>
-            </article>
+                    <div class="text-lg lg:text-xl text-zinc-500 description">
+                        <?= get_the_content($post->ID) ?>  
+                    </div>
+                </article>
+            </a>
+            <?php
+                    }
+                }
+            }
+            ?>
         </div>
     </section>
 </main>
-<?php
-print_r($posts);
-?>
+
+<style type="text/css">
+    .description, .description p {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+</style>
+
 <?php get_footer(); ?>

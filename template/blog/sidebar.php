@@ -113,6 +113,7 @@ $recent_posts = new WP_Query($args);
         cursor: pointer;
         /* hide text */
         text-indent: -9999px;
+        z-index: 10;
         /* add icon */
         background-image: url('https://nas-mat.synology.me/hosted-img/icons/search-black.svg');
         background-repeat: no-repeat;

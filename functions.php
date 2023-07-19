@@ -686,7 +686,7 @@ function esgi_get_partners()
 
 function get_theme_path($path)
 {
-    return getcwd() . '/wp-content/themes/examESGI/' . $path;
+    return getcwd() . '/wp-content/themes/project_wordpress_ESGI/' . $path;
 }
 
 add_action('wp_ajax_foobar', 'esgi_search_posts');

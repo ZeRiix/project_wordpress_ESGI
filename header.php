@@ -103,7 +103,7 @@ $page = get_all_pages();
     const divMenu = document.getElementById("divMenu");
     </script>
 
-    <style>
+    <style type="text/css">
         li:hover div {
             opacity: 1;
         }
