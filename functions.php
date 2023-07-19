@@ -216,58 +216,6 @@ function get_post_by_category($category, $page)
     return $result;
 }
 
-function get_recent_post()
-{
-    $args = array(
-        'post_type' => 'post',
-        'posts_per_page' => 4,
-    );
-
-    $query = new WP_Query($args);
-    $result = [];
-
-    if ($query->have_posts()) {
-        while ($query->have_posts()) {
-            $query->the_post();
-            $current_post = array(
-                'title' => get_the_title(),
-                'content' => get_the_excerpt(),
-                'date' => get_the_date(),
-                'permalink' => get_the_permalink(),
-            );
-            array_push($result, $current_post);
-        }
-    } else {
-        return 'Aucun article ne corespond à votre recherche.';
-    }
-    wp_reset_postdata();
-    return $result;
-}
-
-function get_list_categories()
-{
-    $args = array(
-        'taxonomy' => 'category',
-        'hide_empty' => false,
-    );
-
-    $categories = get_categories($args);
-    $current_url = get_current_uri();
-    if (isset($_GET['category'])) {
-        $current_url = remove_query_arg('category', $current_url);
-    }
-    $result = '';
-
-    if ($categories) {
-        foreach ($categories as $category) {
-            $result .= '<li><a href="' . $current_url . '&category=' . $category->name . '">' . $category->name . '</a></li>';
-        }
-    } else {
-        return 'Aucune catégorie n\'a été trouvé.';
-    }
-    return $result;
-}
-
 function get_current_uri(): string
 {
     if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')
@@ -281,63 +229,12 @@ function get_current_uri(): string
     return $url;
 }
 
-function get_post_per_page($page)
-{
-    $args = array(
-        'post_type' => 'post',
-        'posts_per_page' => 6,
-        'paged' => $page,
-    );
-
-    $query = new WP_Query($args);
-    $result = [];
-
-    if ($query->have_posts()) {
-        while ($query->have_posts()) {
-            $query->the_post();
-            $categories = get_the_category();
-            $categories_name = [];
-            foreach ($categories as $category) {
-                array_push($categories_name, $category->name);
-            }
-            $current_post = array(
-                'title' => get_the_title(),
-                'content' => get_the_excerpt(),
-                'permalink' => get_the_permalink(),
-                'category' => $categories_name,
-            );
-            array_push($result, $current_post);
-        }
-    } else {
-        return 'Aucun article ne corespond à votre recherche.';
-    }
-    wp_reset_postdata();
-    return $result;
+// section PAGINATION
+function enqueue_custom_scripts(){
+    wp_enqueue_script('pagination-ajax', get_template_directory_uri() . '/assets/js/pagination-ajax.js', array('jquery'), '1.0', true);
 }
-function get_nb_post(): int
-{
-    $args = array(
-        'post_type' => 'post',
-        'posts_per_page' => -1,
-    );
-
-    $query = new WP_Query($args);
-    $result = 0;
-
-    if ($query->have_posts()) {
-        while ($query->have_posts()) {
-            $query->the_post();
-            $result++;
-        }
-    }
-    return $result;
-}
-
-function nb_page($nb_post): int
-{
-    $nb_page = $nb_post / 6;
-    return $nb_page;
-}
+add_action('wp_enqueue_scripts', 'enqueue_custom_scripts');
+  
 
 //section SERVICES
 add_action('customize_register', 'esgi_services_customize_resgister');
