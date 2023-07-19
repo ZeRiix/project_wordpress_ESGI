@@ -23,8 +23,8 @@ if (isset($_GET['p'])) {
                     <div class="w-full h-[150px] lg:h-[300px] xl:h-[500px] pr-[20px]">
                         <?php
                         $src = "https://via.placeholder.com/1050x500";
-                        if (!empty($images[0])) {
-                            $src = $images[0];
+                        if (has_post_thumbnail($_GET['p'])) {
+                            $src = get_the_post_thumbnail_url($_GET['p']);
                         }
                         ?>
 
@@ -40,9 +40,7 @@ if (isset($_GET['p'])) {
                         - <?= $post_blog['date'] ?></span>
 
                     <?php
-                    $regex = '/<figure class="wp-block-image[^>]*><img[^>]*src="([^"]+)"[^>]*\/><\/figure>/';
-                    $content = preg_replace($regex, '', $post_blog['content']);
-                    echo $content;
+                    echo $post_blog['content'];
                     ?>
                     <div class="flex flex-wrap gap-[15px]">
                         <?php

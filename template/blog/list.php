@@ -41,9 +41,6 @@ $posts_query = new WP_Query($args);
                                 $posts_query->the_post();
                                 $post = get_post();
                                 $content = get_the_content($post->ID);
-                                $reg = '/<img[^>]*src="([^"]+)"[^>]*\/>/';
-                                preg_match_all($reg, $content, $matches);
-                                $images = $matches[1];
                                 $regex = '/<figure class="wp-block-image[^>]*><img[^>]*src="([^"]+)"[^>]*\/><\/figure>/';
                                 $content = preg_replace($regex, '', $content);
                                 if (strlen($content) > 200) {
@@ -59,8 +56,8 @@ $posts_query = new WP_Query($args);
 
                                             $src = "https://via.placeholder.com/500x330";
 
-                                            if (!empty($images[0])) {
-                                                $src = $images[0];
+                                            if (has_post_thumbnail($post->ID)) {
+                                                $src = get_the_post_thumbnail_url($post->ID);
                                             }
                                             ?>
 
