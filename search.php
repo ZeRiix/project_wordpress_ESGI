@@ -18,6 +18,9 @@ if (!empty($_GET['s'])) {
                 <div class="w-full h-[4px] bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"></div>
             </div>
         </h1>
+        <div class="relative">
+            <?php get_search_form(); ?>
+        </div>
 
         <?php if(!$havePost) { ?>
         <p class="text-lg lg:text-xl text-zinc-500">No results found.</p>
@@ -42,7 +45,7 @@ if (!empty($_GET['s'])) {
                     </p>
                 </article>
             </a>
-            <?php } 
+            <?php }
             } else {
                 $posts = new WP_Query(
                     array(
@@ -65,7 +68,7 @@ if (!empty($_GET['s'])) {
                     <span class="text-lg lg:text-xl text-slate-900 font-bold"><?= get_the_category($post->ID) ?>, <?= wp_date('j F Y', strtotime($post->post_date)) ?></span>
 
                     <div class="text-lg lg:text-xl text-zinc-500 description">
-                        <?= get_the_content($post->ID) ?>  
+                        <?= get_the_content($post->ID) ?>
                     </div>
                 </article>
             </a>
@@ -85,6 +88,45 @@ if (!empty($_GET['s'])) {
         -webkit-box-orient: vertical;
         overflow: hidden;
     }
+    .searchform input[name="s"] {
+        position: relative;
+        z-index: 10;
+        width: 100%;
+        padding-bottom: 8px;
+        outline: none;
+        color: black;
+        border-bottom: 2px solid #4a5568;
+        background-color: transparent;
+    }
+
+    .searchform input[type="submit"] {
+        position: absolute;
+        right: 0;
+        cursor: pointer;
+        /* hide text */
+        text-indent: -9999px;
+        z-index: 10;
+        /* add icon */
+        background-image: url('https://nas-mat.synology.me/hosted-img/icons/search-black.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 16px;
+        height: 16px;
+    }
+
+    ul.categories li::before {
+        content: "\2022";
+        color: pink;
+        font-weight: bold;
+        display: inline-block;
+        width: 1em;
+        margin-left: -1em;
+    }
 </style>
+<script>
+    const inputSearch = document.querySelector('#s');
+    inputSearch.value = '';
+    inputSearch.placeholder = 'Search for...';
+</script>
 
 <?php get_footer(); ?>

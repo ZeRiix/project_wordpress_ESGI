@@ -13,7 +13,7 @@ if (isset($_GET['p'])) {
 <main class="max-w-[1920px] pt-[135px] mx-auto">
     <section
         class="ml-[30px] lg:ml-[50px] xl:ml-[150px] mb-[65px] xl:mb-[130px] flex flex-col gap-[32px] lg:gap-[65px] xl:gap-[130px]">
-        <h1 class="text-3xl lg:text-5xl xl:text-7xl font-semibold text-slate-900"><?= $post_blog["title"] . '.' ?></h1>
+        <h1 class="text-3xl lg:text-5xl xl:text-7xl font-semibold text-slate-900"><a href="<?php page_uri('blog/list') ?>"><?= $post_blog["title"] . '.' ?></a></h1>
 
         <div class="flex flex-col lg:flex-row gap-[50px]">
             <?php include 'sidebar.php' ?>
