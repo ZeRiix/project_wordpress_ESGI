@@ -67,7 +67,7 @@ $recent_posts = new WP_Query($args);
             foreach ($categories as $category) {
             ?>
             <li class="flex items-center">
-                <a href="<?= get_current_uri() . '&category=' . $category->name ?>"
+                <a href="<?= delete_argument_uri(get_current_uri()) . '&category=' . $category->name ?>"
                     class="flex gap-[10px] text-lg lg:text-xl text-zinc-500">
                     <?= $category->name ?>
                 </a>
@@ -87,7 +87,7 @@ $recent_posts = new WP_Query($args);
 
             foreach ($tags as $tag) {
             ?>
-            <a href="<?= get_current_uri() . '&tags=' . $tag->name ?>"
+            <a href="<?= delete_argument_uri(get_current_uri()) . '&tags=' . $tag->name ?>"
                 class="p-[5px] text-xs lg:text-sm text-zinc-500 font-medium bg-[#F8F8F8]">
                 <?= $tag->name ?>
             </a>
