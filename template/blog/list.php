@@ -26,7 +26,7 @@ $posts_query = new WP_Query($args);
 <main class="max-w-[1920px] pt-[135px] mx-auto">
     <section
         class="ml-[30px] lg:ml-[50px] xl:ml-[150px] mb-[65px] xl:mb-[130px] flex flex-col gap-[32px] lg:gap-[65px] xl:gap-[130px]">
-        <h1 class="text-3xl lg:text-5xl xl:text-7xl font-semibold text-slate-900">Blog.</h1>
+        <h1 class="text-3xl lg:text-5xl xl:text-7xl font-semibold text-slate-900"><a href="<?php page_uri('blog/list') ?>">Blog.</a></h1>
 
         <div class="flex flex-col lg:flex-row gap-[50px]">
             <?php include 'sidebar.php' ?>
@@ -41,9 +41,6 @@ $posts_query = new WP_Query($args);
                                 $posts_query->the_post();
                                 $post = get_post();
                                 $content = get_the_content($post->ID);
-                                $reg = '/<img[^>]*src="([^"]+)"[^>]*\/>/';
-                                preg_match_all($reg, $content, $matches);
-                                $images = $matches[1];
                                 $regex = '/<figure class="wp-block-image[^>]*><img[^>]*src="([^"]+)"[^>]*\/><\/figure>/';
                                 $content = preg_replace($regex, '', $content);
                                 if (strlen($content) > 200) {
@@ -59,8 +56,8 @@ $posts_query = new WP_Query($args);
 
                                             $src = "https://via.placeholder.com/500x330";
 
-                                            if (!empty($images[0])) {
-                                                $src = $images[0];
+                                            if (has_post_thumbnail($post->ID)) {
+                                                $src = get_the_post_thumbnail_url($post->ID);
                                             }
                                             ?>
 
