@@ -44,17 +44,11 @@ if (isset($_GET['p'])) {
                     ?>
                     <div class="flex flex-wrap gap-[15px]">
                         <?php
-                        $tags = get_the_tags();
-
-                        foreach ($tags as $tag) {
-                        ?>
-                        <a href="<?= get_tag_link($tag->term_id) ?>"
+                        $tag = get_the_tags(intval($_GET['p'])); ?>
+                        <a
                             class="p-[5px] text-xs lg:text-sm text-zinc-500 font-medium bg-[#F8F8F8]">
-                            <?= $tag->name ?>
+                            <?= $tag[0]->name ?? "Untagged" ?>
                         </a>
-                        <?php
-                        }
-                        ?>
                     </div>
                 </article>
 
