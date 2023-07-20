@@ -692,7 +692,7 @@ function esgi_get_partners()
 
 function get_theme_path($path)
 {
-    return getcwd() . '/wp-content/themes/project_wordpress_ESGI/' . $path;
+    return getcwd() . '/wp-content/themes/examESGI/' . $path;
 }
 
 add_action('wp_ajax_foobar', 'esgi_search_posts');
@@ -731,9 +731,25 @@ function esgi_search_posts($search_query)
     return $result;
 }
 
-function delete_argument_uri($param): void
+function delete_argument_uri($url): string
 {
-    $cur = remove_query_arg($param, get_current_uri());
+    $questionMarkPos = strpos($url, '?');
+
+    if ($questionMarkPos !== false) {
+        $baseUrl = substr($url, 0, $questionMarkPos);
+        $queryString = substr($url, $questionMarkPos + 1);
+        $queryArgs = explode('&', $queryString);
+        if (count($queryArgs) > 2) {
+            array_pop($queryArgs);
+        }
+        $newQueryString = implode('&', $queryArgs);
+        $modifiedUrl = $baseUrl;
+        if (!empty($newQueryString)) {
+            $modifiedUrl .= '?' . $newQueryString;
+        }
+        return $modifiedUrl;
+    }
+    return $url;
 }
 
 function get_post_by_id($id)
